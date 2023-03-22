@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:flutter/material.dart';
 
 class FillBio extends StatefulWidget {
@@ -19,20 +21,58 @@ class FillBioState extends State<FillBio> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 70),
-          const Text(
-            'Fill Your Bio to get started',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 30,
+          Container(
+            padding: const EdgeInsets.all(30),
+            alignment: Alignment.centerLeft,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15.0),
+              child: Container(
+                height: 40.0,
+                width: 40.0,
+                color: const Color.fromARGB(255, 253, 242, 234),
+                child: const IconButton(
+                  onPressed: null,
+                  icon: Icon(
+                    Icons.arrow_back_ios_rounded,
+                    size: 20,
+                    color: Color(0xFFfd841f),
+                  ),
+                  alignment: Alignment.center,
+                ),
+              ),
             ),
-            textAlign: TextAlign.left,
           ),
-          const Text(
-            'This data will be displayed in your account profile for your security',
-            textAlign: TextAlign.start,
-            style: TextStyle(
-              fontSize: 15,
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                'Fill in your bio to get \nstarted',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30,
+                ),
+                textAlign: TextAlign.start,
+              ),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 30,
+              vertical: 30,
+            ),
+            child: SizedBox(
+              width: double.infinity,
+              child: Text(
+                'This data will be displayed in your account\nprofile for your security',
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  height: 2,
+                  fontSize: 15,
+                ),
+              ),
             ),
           ),
           Padding(
@@ -44,8 +84,20 @@ class FillBioState extends State<FillBio> {
                 children: [
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'First Name',
+                    textAlign: TextAlign.left,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: 'First Name',
+                      hintStyle: const TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                      filled: true,
+                      contentPadding: const EdgeInsets.all(30),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -59,8 +111,20 @@ class FillBioState extends State<FillBio> {
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Last Name',
+                    textAlign: TextAlign.left,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: 'Last Name',
+                      hintStyle: const TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                      filled: true,
+                      contentPadding: const EdgeInsets.all(30),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -74,8 +138,20 @@ class FillBioState extends State<FillBio> {
                   ),
                   const SizedBox(height: 16.0),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
+                    textAlign: TextAlign.left,
+                    keyboardType: TextInputType.text,
+                    decoration: InputDecoration(
+                      hintText: 'Mobile Number',
+                      hintStyle: const TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                        borderSide: const BorderSide(
+                          width: 0,
+                          style: BorderStyle.none,
+                        ),
+                      ),
+                      filled: true,
+                      contentPadding: const EdgeInsets.all(30),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -87,22 +163,36 @@ class FillBioState extends State<FillBio> {
                       _email = value!;
                     },
                   ),
-                  const SizedBox(height: 16.0),
-                  ElevatedButton(
-                    style: const ButtonStyle(
-                      overlayColor: MaterialStatePropertyAll(
-                          Color.fromARGB(255, 255, 196, 148)),
-                      backgroundColor: MaterialStatePropertyAll(
-                        Color(0xFFfd841f),
+                  const SizedBox(height: 200.0),
+                  Center(
+                    child: SizedBox(
+                      height: 50,
+                      width: 150,
+                      child: ElevatedButton(
+                        style: const ButtonStyle(
+                          shape: MaterialStatePropertyAll(
+                            RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(15)),
+                            ),
+                          ),
+                          alignment: Alignment.center,
+                          overlayColor: MaterialStatePropertyAll(
+                              Color.fromARGB(255, 255, 196, 148)),
+                          backgroundColor: MaterialStatePropertyAll(
+                            Color(0xFFfd841f),
+                          ),
+                        ),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            _formKey.currentState!.save();
+                            // Save account details to database or perform other actions here
+                          }
+                        },
+                        child:
+                            const Text('Next', style: TextStyle(fontSize: 20)),
                       ),
                     ),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        // Save account details to database or perform other actions here
-                      }
-                    },
-                    child: const Text('Save'),
                   ),
                 ],
               ),

@@ -1,4 +1,4 @@
-// ignore_for_file: dead_code, no_leading_underscores_for_local_identifiers
+// ignore_for_file: dead_code, no_leading_underscores_for_local_identifiers, unused_import, duplicate_ignore
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

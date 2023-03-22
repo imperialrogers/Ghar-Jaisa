@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:project_s4/screens/fill_bio.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Ghar Jaisa',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: const Color(0xFFfd841f),
+          secondary: Color.fromARGB(255, 253, 242, 234),
+        ),
       ),
       home: const FillBio(),
       routes: {
