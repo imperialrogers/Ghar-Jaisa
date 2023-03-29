@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_s4/screens/fill_bio.dart';
 import 'package:provider/provider.dart';
+import './screens/homepage_screen.dart';
 
 import './screens/login_screen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const FillBio(),
+      home: HomePage(),
       routes: {
         LoginScreen.routeName: (ctx) => const LoginScreen(),
         FillBio.routeName: (ctx) => const FillBio(),
