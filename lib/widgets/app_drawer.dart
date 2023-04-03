@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
-import '../screens/homepage_screen.dart';
 
 class AppDrawer extends StatefulWidget {
   final Widget? childWidget;
@@ -131,6 +130,7 @@ class _AppDrawerState extends State<AppDrawer> {
   }
 }
 
+// ignore: must_be_immutable
 class DrawerList extends StatelessWidget {
   IconData icon;
   String text;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'login_screen.dart';
+import './login_screen.dart';
 
 class signupPage extends StatelessWidget {
   static const routeName = 'ResetPassword';
