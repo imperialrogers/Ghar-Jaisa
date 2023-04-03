@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     textStyle: const TextStyle(fontWeight: FontWeight.bold)
                     // Text Color
                     ),
-                child: const Text('Login to your account'),
+                child: const Text('Login to your account...'),
               ),
               TextFormField(
                 controller: _emailController,
