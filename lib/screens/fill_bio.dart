@@ -24,20 +24,22 @@ class FillBioState extends State<FillBio> {
           Container(
             padding: const EdgeInsets.all(30),
             alignment: Alignment.centerLeft,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(15.0),
-              child: Container(
-                height: 40.0,
-                width: 40.0,
-                color: const Color.fromARGB(255, 253, 242, 234),
-                child: const IconButton(
-                  onPressed: null,
-                  icon: Icon(
-                    Icons.arrow_back_ios_rounded,
-                    size: 20,
-                    color: Color(0xFFfd841f),
+            child: SingleChildScrollView(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(15.0),
+                child: Container(
+                  height: 40.0,
+                  width: 40.0,
+                  color: const Color.fromARGB(255, 253, 242, 234),
+                  child: const IconButton(
+                    onPressed: null,
+                    icon: Icon(
+                      Icons.arrow_back_ios_rounded,
+                      size: 20,
+                      color: Color(0xFFfd841f),
+                    ),
+                    alignment: Alignment.center,
                   ),
-                  alignment: Alignment.center,
                 ),
               ),
             ),
