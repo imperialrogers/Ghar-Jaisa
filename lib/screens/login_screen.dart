@@ -1,115 +1,89 @@
-// ignore_for_file: dead_code, no_leading_underscores_for_local_identifiers
-
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
-  static const routeName = '/login-screen';
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
+class LoginPage extends StatelessWidget {
+  static const routeName = 'ResetPassword';
   @override
   Widget build(BuildContext context) {
-    //FUNCTIONS
-
-    void signIn() {
-      // implement your sign in logic here
-    }
-
-    void signUp() {
-      // implement your sign up logic here
-    }
-
-    //VARIABLES
-
-    final _formKey = GlobalKey<FormState>();
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
-    bool _isSignIn = true;
-
-    //SCAFFOLD
-
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(16),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextButton(
-                onPressed: () {
-                  // Navigate to the login page
-                },
-                style: TextButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    textStyle: const TextStyle(fontWeight: FontWeight.bold)
-                    // Text Color
-                    ),
-                child: const Text('Login to your account'),
-              ),
-              TextFormField(
-                controller: _emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your email';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
-              TextFormField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
-                  border: OutlineInputBorder(),
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Please enter your password';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    _isSignIn ? signIn() : signUp();
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFfd841f), // Background color
-                ),
-                child: Text(_isSignIn ? 'Sign In' : 'Sign Up'),
-              ),
-              TextButton(
-                onPressed: () {
-                  setState(() {
-                    _isSignIn = !_isSignIn;
-                  });
-                },
-                style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFFfd841f), // Text Color
-                ),
-                child: Text(
-                  _isSignIn
-                      ? 'Don\'t have an account? Sign up.'
-                      // ignore: dead_code
-                      : 'Already have an account? Sign in.',
-                ),
-              ),
-            ],
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/food_background.jpg"),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Login to your account",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 40),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.7),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextFormField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  hintText: "Email ",
+                  icon: Icon(Icons.email, color: Colors.orange),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.7),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextFormField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  hintText: "Password",
+                  icon: Icon(Icons.lock, color: Colors.orange),
+                  //suffixIcon: Icon(Icons.visibility, color: Colors.orange),
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextButton(
+              onPressed: () {},
+              child: Text("Forgot Password?",
+                  style: TextStyle(fontSize: 16, color: Colors.black)),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text("Login", style: TextStyle(fontSize: 20)),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+                padding: EdgeInsets.symmetric(horizontal: 80, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Text("Or", style: TextStyle(fontSize: 20, color: Colors.black)),
+            SizedBox(height: 20),
+            SignInButton(
+              Buttons.Google,
+              onPressed: () {},
+              text: "Continue with Google",
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ],
         ),
       ),
     );
