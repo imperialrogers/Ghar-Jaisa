@@ -56,6 +56,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "flutter_advanced_drawer",
+      "rootUri": "file:///Users/anubhavgupta/.pub-cache/hosted/pub.dev/flutter_advanced_drawer-1.3.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/anubhavgupta/development/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -158,7 +164,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-03-22T20:31:39.445522Z",
+  "generated": "2023-04-02T20:19:33.504823Z",
   "generator": "pub",
-  "generatorVersion": "2.19.4"
+  "generatorVersion": "2.19.6"
 }

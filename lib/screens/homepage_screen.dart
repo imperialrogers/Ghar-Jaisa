@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+
+import '../widgets/app_drawer.dart';
 //import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatelessWidget {
+  final _advancedDrawerController = AdvancedDrawerController();
+
+  void _handleMenuButtonPressed() {
+    _advancedDrawerController.showDrawer();
+  }
+
   @override
   Widget buildCard(int index) {
     return Card(
@@ -23,10 +32,11 @@ class HomePage extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           SizedBox(
-            height: 50,
+            height: 20,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,55 +110,51 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
-            height: 140,
-          ),
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Nearest Restaurant',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+            child: Container(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Nearest Restaurant',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
                         ),
-                        TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              'View More',
-                              style: TextStyle(
-                                  color: Colors.orange,
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 13),
-                            ))
-                      ],
-                    ),
-                    SizedBox(
-                      height: 210,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.all(12),
-                        itemCount: 10,
-                        separatorBuilder: (context, index) => const SizedBox(
-                          width: 10,
-                        ),
-                        itemBuilder: (context, index) => buildCard(index),
                       ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'View More',
+                            style: TextStyle(
+                                color: Colors.orange,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 13),
+                          ))
+                    ],
+                  ),
+                  SizedBox(
+                    height: 210,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.all(12),
+                      itemCount: 10,
+                      separatorBuilder: (context, index) => const SizedBox(
+                        width: 10,
+                      ),
+                      itemBuilder: (context, index) => buildCard(index),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
         ],
+        // ),
       ),
     );
   }
