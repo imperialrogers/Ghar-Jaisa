@@ -1,18 +1,38 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:project_s4/screens/fill_bio.dart';
+import 'package:project_s4/features/auth/screens/signup_screen.dart';
+import 'package:project_s4/features/auth/screens/login_screen.dart';
+import 'package:project_s4/features/auth/services/auth_service.dart';
+import 'package:project_s4/features/home/screens/home_screen.dart';
+import 'package:project_s4/providers/user_provider.dart';
 import 'package:provider/provider.dart';
-
-import './screens/login_screen.dart';
-import './screens/your_account.dart';
+import './router.dart';
+import './features/home/widgets/app_drawer.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(
+      create: (context) => UserProvider(),
+    ),
+  ], child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AuthService authService = AuthService();
+  @override
+  void initState() {
+    super.initState();
+    authService.getUserData(context: context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,12 +44,10 @@ class MyApp extends StatelessWidget {
           secondary: Color.fromARGB(255, 253, 242, 234),
         ),
       ),
-      home: YourAccountScreen(),
-      routes: {
-        LoginScreen.routeName: (ctx) => const LoginScreen(),
-        FillBio.routeName: (ctx) => const FillBio(),
-        YourAccountScreen.routeName: (ctx) => YourAccountScreen(),
-      },
+      onGenerateRoute: (settings) => generateRoute(settings),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? AppDrawer(HomeScreen())
+          : LoginScreen(),
     );
   }
 }
