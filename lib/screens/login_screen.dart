@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 
 class LoginPage extends StatelessWidget {
   static const routeName = 'ResetPassword';
@@ -8,12 +7,12 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/food_background.jpg"),
-            fit: BoxFit.cover,
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   image: DecorationImage(
+        //     image: AssetImage("assets/images/food_background.jpg"),
+        //     fit: BoxFit.cover,
+        //   ),
+        // ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -75,14 +74,14 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 20),
             Text("Or", style: TextStyle(fontSize: 20, color: Colors.black)),
             SizedBox(height: 20),
-            SignInButton(
-              Buttons.Google,
-              onPressed: () {},
-              text: "Continue with Google",
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
+            // SignInButton(
+            //   Buttons.Google,
+            //   onPressed: () {},
+            //   text: "Continue with Google",
+            //   shape: RoundedRectangleBorder(
+            //     borderRadius: BorderRadius.circular(10),
+            //   ),
+            // ),
           ],
         ),
       ),

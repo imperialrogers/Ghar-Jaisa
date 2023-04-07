@@ -9,3 +9,4 @@
 /home/imperialrogers/Desktop/project_s4/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.json
 /home/imperialrogers/Desktop/project_s4/build/linux/x64/debug/bundle/data/flutter_assets/shaders/ink_sparkle.frag
 /home/imperialrogers/Desktop/project_s4/build/linux/x64/debug/bundle/data/flutter_assets/kernel_blob.bin
+/home/imperialrogers/Desktop/project_s4/build/linux/x64/debug/bundle/data/flutter_assets/AssetManifest.bin
