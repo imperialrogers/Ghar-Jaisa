@@ -8,10 +8,22 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "badges",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/badges-3.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "carousel_slider",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/carousel_slider-4.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "characters",
@@ -26,6 +38,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "cloudinary_public",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/cloudinary_public-0.20.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "collection",
       "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/collection-1.17.1",
       "packageUri": "lib/",
@@ -34,6 +52,18 @@
     {
       "name": "cupertino_icons",
       "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/cupertino_icons-1.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "dio",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/dio-4.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "dotted_border",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/dotted_border-2.0.0+3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -56,6 +86,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "file_picker",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/file_picker-5.2.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///home/imperialrogers/dev/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -72,6 +108,12 @@
       "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/flutter_lints-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_plugin_android_lifecycle",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/flutter_plugin_android_lifecycle-2.0.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_test",
@@ -111,7 +153,7 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/matcher-0.12.14",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/matcher-0.12.15",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -136,6 +178,18 @@
     {
       "name": "path",
       "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/path-1.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/path_drawing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/path_parsing-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -231,9 +285,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/source_span-1.9.1",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.18"
     },
     {
       "name": "stack_trace",
@@ -261,7 +315,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/test_api-0.4.18",
+      "rootUri": "file:///home/imperialrogers/.pub-cache/hosted/pub.dev/test_api-0.5.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -296,7 +350,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-04-07T20:41:45.883658Z",
+  "generated": "2023-04-09T13:31:20.507120Z",
   "generator": "pub",
-  "generatorVersion": "3.0.0-366.0.dev"
+  "generatorVersion": "3.0.0-417.0.dev"
 }

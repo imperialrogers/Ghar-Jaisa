@@ -1,15 +1,36 @@
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:project_s4/features/auth/screens/login_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../constants/utils.dart';
 
 class AppDrawer extends StatefulWidget {
   final Widget? childWidget;
-  AppDrawer(this.childWidget);
+  const AppDrawer(this.childWidget);
   @override
   _AppDrawerState createState() => _AppDrawerState();
 }
 
 class _AppDrawerState extends State<AppDrawer> {
   final _advancedDrawerController = AdvancedDrawerController();
+
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        LoginScreen.routeName,
+        (route) => false,
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +81,12 @@ class _AppDrawerState extends State<AppDrawer> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(height: 80),
+                DrawerList(Icons.home, 'Home', () {}),
+                const Divider(
+                  color: Colors.white,
+                  indent: 75,
+                  endIndent: 30,
+                ),
                 DrawerList(Icons.account_circle_rounded, 'Profile', () {}),
                 const Divider(
                   color: Colors.white,
@@ -85,22 +112,24 @@ class _AppDrawerState extends State<AppDrawer> {
                   indent: 75,
                   endIndent: 30,
                 ),
-                DrawerList(Icons.security_sharp, 'Security', () {}),
                 Spacer(),
                 TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(foregroundColor: Colors.white),
-                  child: Row(
-                    children: [
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      Text(
-                        'Sign-Out  ',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Icon(Icons.arrow_forward),
-                    ],
+                  child: InkWell(
+                    onTap: () => logOut(context),
+                    child: Row(
+                      children: [
+                        const SizedBox(
+                          width: 30,
+                        ),
+                        Text(
+                          'Sign-Out  ',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        Icon(Icons.arrow_forward),
+                      ],
+                    ),
                   ),
                 ),
                 DefaultTextStyle(
