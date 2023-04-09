@@ -1,3 +1,4 @@
+
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
@@ -10,12 +11,14 @@ import '../../../constants/utils.dart';
 class AppDrawer extends StatefulWidget {
   final Widget? childWidget;
   const AppDrawer(this.childWidget);
+
   @override
   _AppDrawerState createState() => _AppDrawerState();
 }
 
 class _AppDrawerState extends State<AppDrawer> {
   final _advancedDrawerController = AdvancedDrawerController();
+
 
   void logOut(BuildContext context) async {
     try {
@@ -87,6 +90,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   indent: 75,
                   endIndent: 30,
                 ),
+
                 DrawerList(Icons.account_circle_rounded, 'Profile', () {}),
                 const Divider(
                   color: Colors.white,
@@ -112,6 +116,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   indent: 75,
                   endIndent: 30,
                 ),
+
                 Spacer(),
                 TextButton(
                   onPressed: () {},
@@ -130,6 +135,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         Icon(Icons.arrow_forward),
                       ],
                     ),
+
                   ),
                 ),
                 DefaultTextStyle(

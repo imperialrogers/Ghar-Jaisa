@@ -16,6 +16,7 @@ class User {
     required this.password,
     required this.address,
     required this.user,
+
     required this.type,
     required this.token,
   });
