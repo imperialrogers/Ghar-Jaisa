@@ -6,17 +6,19 @@ const DB="mongodb+srv://imperialrogers:imperialrogers@cluster0.jg1vacl.mongodb.n
 //Other Files Imports
 const authRouter= require('./routes/auth.js');
 const adminRouter = require('./routes/admin.js');
+const productRouter = require('./routes/product.js');
 
 //INIT
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 //Middleware
 app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
+app.use(productRouter);
 
-//connections
+//Connections
 mongoose.connect(DB).then(()=>{
     console.log("Connection Successful With MongoDB Database");
 }).catch(e => {

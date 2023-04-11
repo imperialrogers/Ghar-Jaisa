@@ -1,4 +1,3 @@
-
 // ignore_for_file: unused_import, prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -50,9 +49,9 @@ class _MyAppState extends State<MyApp> {
       ),
       onGenerateRoute: (settings) => generateRoute(settings),
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? Provider.of<UserProvider>(context).user.type == 'user'
+          ? (Provider.of<UserProvider>(context).user.type == 'user'
               ? AppDrawer(BottomBar())
-              : AdminScreen()
+              : AdminScreen())
           : LoginScreen(),
     );
   }

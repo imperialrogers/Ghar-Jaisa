@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:project_s4/common/widgets/loader.dart';
 import 'package:project_s4/features/admin/screens/add_products_screen.dart';
 import 'package:project_s4/features/admin/services/admin_services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../constants/utils.dart';
 import '../../../models/product.dart';
 import '../../account/widgets/single_product.dart';
+import '../../auth/screens/login_screen.dart';
 
 class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
@@ -44,12 +47,33 @@ class _PostScreenState extends State<PostScreen> {
     );
   }
 
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        LoginScreen.routeName,
+        (route) => false,
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
   @override
   //
   Widget build(BuildContext context) {
     return products == null
         ? const Loader()
         : Scaffold(
+            appBar: AppBar(actions: [
+              ElevatedButton(
+                onPressed: () => logOut(context),
+                child: Text("SIGN-OUT"),
+              ),
+            ]),
             body: GridView.builder(
               itemCount: products!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

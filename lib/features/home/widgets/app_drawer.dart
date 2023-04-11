@@ -1,9 +1,9 @@
-
-// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, sort_child_properties_last, prefer_const_literals_to_create_immutables, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:project_s4/features/auth/screens/login_screen.dart';
+import 'package:project_s4/features/home/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/utils.dart';
@@ -19,6 +19,10 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   final _advancedDrawerController = AdvancedDrawerController();
 
+  void _navigateToHome() {
+    _advancedDrawerController.hideDrawer();
+    Navigator.pushNamed(context, HomeScreen.routeName);
+  }
 
   void logOut(BuildContext context) async {
     try {
@@ -47,7 +51,7 @@ class _AppDrawerState extends State<AppDrawer> {
       // openScale: 1.0,
       disabledGestures: false,
       childDecoration: const BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       child: Scaffold(
         appBar: AppBar(
@@ -84,14 +88,21 @@ class _AppDrawerState extends State<AppDrawer> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 SizedBox(height: 80),
-                DrawerList(Icons.home, 'Home', () {}),
+                DrawerList(
+                  Icons.home,
+                  'Home',
+                  _navigateToHome,
+                ),
                 const Divider(
                   color: Colors.white,
                   indent: 75,
                   endIndent: 30,
                 ),
-
-                DrawerList(Icons.account_circle_rounded, 'Profile', () {}),
+                DrawerList(
+                  Icons.account_circle_rounded,
+                  'Profile',
+                  _navigateToHome,
+                ),
                 const Divider(
                   color: Colors.white,
                   indent: 75,
@@ -116,7 +127,13 @@ class _AppDrawerState extends State<AppDrawer> {
                   indent: 75,
                   endIndent: 30,
                 ),
-
+                DrawerList(
+                    Icons.pending_actions_outlined, 'Send Feedback', () {}),
+                const Divider(
+                  color: Colors.white,
+                  indent: 75,
+                  endIndent: 30,
+                ),
                 Spacer(),
                 TextButton(
                   onPressed: () {},
@@ -135,7 +152,6 @@ class _AppDrawerState extends State<AppDrawer> {
                         Icon(Icons.arrow_forward),
                       ],
                     ),
-
                   ),
                 ),
                 DefaultTextStyle(
@@ -169,14 +185,14 @@ class _AppDrawerState extends State<AppDrawer> {
 class DrawerList extends StatelessWidget {
   IconData icon;
   String text;
-  Function func;
+  VoidCallback func;
 
   DrawerList(this.icon, this.text, this.func);
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () => func,
+      onTap: func,
       // leading: Icon(Icons.home),
       leading: Icon(
         icon,
