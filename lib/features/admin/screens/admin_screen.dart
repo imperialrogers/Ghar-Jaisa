@@ -46,8 +46,8 @@ class _AdminScreenState extends State<AdminScreen> {
           ),
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
+            children: const [
+              Text(
                 'Admin',
                 style: TextStyle(
                   color: Colors.black,
@@ -58,7 +58,6 @@ class _AdminScreenState extends State<AdminScreen> {
           ),
         ),
       ),
-      // body: ,
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _page,

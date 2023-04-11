@@ -43,7 +43,7 @@ dependencies:
   cloudinary_public: ^0.20.0
   file_picker: ^5.2.7
   carousel_slider: ^4.2.1
-  dotted_border: ^2.0.0+3n
+  dotted_border: ^2.0.0
 
 dev_dependencies:
   flutter_test:

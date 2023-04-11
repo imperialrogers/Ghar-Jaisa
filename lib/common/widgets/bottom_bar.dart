@@ -22,13 +22,10 @@ class _BottomBarState extends State<BottomBar> {
   List<Widget> pages = [
     (HomeScreen()),
     const Center(
-      child: Text("Order Screen"),
+      child: Text("Favorites"),
     ),
     const Center(
-      child: Text("Order Screen"),
-    ),
-    const Center(
-      child: Text("Order Screen"),
+      child: Text("Orders"),
     ),
   ];
 
@@ -68,7 +65,7 @@ class _BottomBarState extends State<BottomBar> {
             label: '',
           ),
 
-          //2 PROFILE
+          //2 FAVOURITES
           BottomNavigationBarItem(
             icon: Container(
               width: bottomBarWidth,
@@ -83,7 +80,7 @@ class _BottomBarState extends State<BottomBar> {
                 ),
               ),
               child: const Icon(
-                Icons.account_circle_outlined,
+                Icons.favorite_outline_outlined,
               ),
             ),
             label: '',

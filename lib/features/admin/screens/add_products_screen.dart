@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:project_s4/constants/global_variables.dart';
 
 import '../../../common/widgets/custom_button.dart';
 import '../../../common/widgets/custom_textfield.dart';
@@ -25,7 +26,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
   final AdminServices adminServices = AdminServices();
 
-  String category = 'Biryani';
+  String category = "Main Course";
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
 
@@ -37,14 +38,14 @@ class _AddProductScreenState extends State<AddProductScreen> {
     priceController.dispose();
   }
 
-  List<String> productCategories = [
-    'Biryani',
-    'Chinese',
-    'Non-veg VEG',
-    'Chaats',
-    'Burgers',
-    'Pizzas'
-  ];
+  // List<String> productCategories = [
+  //   'Biryani',
+  //   'Chinese',
+  //   'Non-veg VEG',
+  //   'Chaats',
+  //   'Burgers',
+  //   'Pizzas'
+  // ];
 
   void sellProduct() {
     if (_addProductFormKey.currentState!.validate() && images.isNotEmpty) {
@@ -70,6 +71,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Form(
           key: _addProductFormKey,
@@ -152,7 +154,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   child: DropdownButton(
                     value: category,
                     icon: const Icon(Icons.keyboard_arrow_down),
-                    items: productCategories.map((String item) {
+                    items: GlobalVariables.categoriesList.map((String item) {
                       return DropdownMenuItem(
                         value: item,
                         child: Text(item),
