@@ -34,31 +34,41 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: AppBar(
-          bottomOpacity: 0,
-          forceMaterialTransparency: true,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  child: const FoodSearchBar(),
-                ),
-              ),
-            ],
+      backgroundColor: const Color.fromARGB(247, 255, 255, 255),
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
           ),
         ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Text(
+            'Showing search results',
+            style: TextStyle(
+                color: Color.fromARGB(200, 50, 53, 51),
+                fontWeight: FontWeight.w600,
+                fontSize: 19),
+          ),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       ),
       body: products == null
           ? const Loader()
           : products!.isEmpty
-              ? const Scaffold(
+              ? Scaffold(
                   body: SingleChildScrollView(
                     child: Column(
-                      children: [
+                      children: const [
                         SizedBox(
                           height: 300,
                         ),
@@ -82,8 +92,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 )
               : Column(
                   children: [
-                    const SizedBox(
-                      height: 30,
+                    const Padding(
+                      padding: EdgeInsets.only(
+                          left: 10, top: 10, right: 7, bottom: 20),
+                      child: FoodSearchBar(),
                     ),
                     Expanded(
                       child: ListView.builder(
@@ -91,8 +103,19 @@ class _SearchScreenState extends State<SearchScreen> {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {},
-                            child: SearchedProduct(
-                              product: products![index],
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Card(
+                                  color:
+                                      const Color.fromARGB(255, 255, 255, 255),
+                                  elevation: 0,
+                                  child: SearchedProduct(
+                                    product: products![index],
+                                  ),
+                                ),
+                              ),
                             ),
                           );
                         },
