@@ -7,6 +7,9 @@ const DB="mongodb+srv://imperialrogers:imperialrogers@cluster0.jg1vacl.mongodb.n
 const authRouter= require('./routes/auth.js');
 const adminRouter = require('./routes/admin.js');
 const productRouter = require('./routes/product.js');
+const mailRouter = require('./routes/mail.js');
+const userRouter = require('./routes/user.js');
+
 
 //INIT
 const PORT = process.env.PORT || 3000;
@@ -17,6 +20,8 @@ app.use(express.json());
 app.use(authRouter);
 app.use(adminRouter);
 app.use(productRouter);
+app.use(mailRouter);
+app.use(userRouter);
 
 //Connections
 mongoose.connect(DB).then(()=>{
