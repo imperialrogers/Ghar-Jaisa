@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_s4/features/user_profile/screens/user_profile_screen.dart';
-import 'package:project_s4/features/user_profile/services/user_services.dart';
 import '../widgets/bottom_sheet.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -10,12 +8,11 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  final UserService userService = UserService();
   final _formKey = GlobalKey<FormState>();
-  final _fnameController = TextEditingController();
-  final _lnameController = TextEditingController();
-  final _addressController = TextEditingController();
-  // final _bioController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _phoneController = TextEditingController();
+  final _bioController = TextEditingController();
   bool _isLoading = false;
 
   @override
@@ -99,55 +96,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                       const SizedBox(height: 32.0),
                       Text(
-                        'First Name',
+                        'Name',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _fnameController,
+                        controller: _nameController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your First name';
+                            return 'Please enter your name';
                           }
                           return null;
                         },
                         decoration: const InputDecoration(
-                          hintText: 'Enter your Firest Name',
+                          hintText: 'Enter your name',
                         ),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
-                        'Last Name',
+                        'Email',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _lnameController,
+                        controller: _emailController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your Last Name';
+                            return 'Please enter your email';
                           }
                           return null;
                         },
-                        keyboardType: TextInputType.name,
+                        keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
-                          hintText: 'Enter your Last Name',
+                          hintText: 'Enter your email',
                         ),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
-                        'Address',
+                        'Phone',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _addressController,
+                        controller: _phoneController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your Address';
+                            return 'Please enter your phone number';
                           }
                           return null;
                         },
-                        keyboardType: TextInputType.streetAddress,
+                        keyboardType: TextInputType.phone,
                         decoration: const InputDecoration(
-                          hintText: 'Enter your Adddress',
+                          hintText: 'Enter your phone number',
                         ),
                       ),
                       const SizedBox(height: 50.0),
@@ -160,25 +157,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
+                                  // Implement update functionality
                                   setState(() {
                                     _isLoading = true;
                                   });
-                                  // Implement update functionality
-                                  userService.changeCredentials(
-                                    address: _addressController.text,
-                                    lname: _lnameController.text,
-                                    fname: _fnameController.text,
-                                    context: context,
-                                  );
                                   // Simulating update with delay
                                   Future.delayed(const Duration(seconds: 2),
                                       () {
                                     setState(() {
                                       _isLoading = false;
                                     });
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Profile updated'),
+                                      ),
+                                    );
                                   });
-                                  Navigator.pushNamed(
-                                      context, UserProfileScreen.routeName);
                                 }
                               },
                               child: const Text('Update'),

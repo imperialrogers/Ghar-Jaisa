@@ -26,38 +26,38 @@ class FeedBackScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController _feedbackController = TextEditingController();
     return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Text(
+            "Send Feedback",
+            style: TextStyle(
+                color: Color.fromARGB(200, 50, 53, 51),
+                fontWeight: FontWeight.w600,
+                fontSize: 19),
+          ),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15.0),
-                child: Container(
-                  height: 40.0,
-                  width: 40.0,
-                  color: const Color.fromARGB(255, 253, 242, 234),
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios_rounded,
-                      size: 20,
-                      color: Color(0xFFfd841f),
-                    ),
-                    alignment: Alignment.center,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Text("SEND FEEDBACK",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
             SizedBox(
               height: 20,
             ),

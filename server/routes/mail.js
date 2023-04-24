@@ -6,10 +6,12 @@ const nodemailer = require("nodemailer");
 const mailRouter = express.Router();
 
 
+//REAL ACCOUNT
+
+
 //_____________________________________WELCOME MAIL________________________________
 
-    mailRouter.post("/mail/welcome", async (req, res) => {
-      const {email_address, name} = req.body;
+    mailRouter.get("/mail/welcome", async (req, res) => {
     let config  = {
         service : "Hotmail",
         auth : {
@@ -42,7 +44,7 @@ const mailRouter = express.Router();
 
       let email = {
         body: {
-          name: name,
+          name: "Foodie",
           intro: "Thank you for choosing Food Delivery Company! We're excited to bring delicious meals right to your doorstep. Here's what you can expect from our service:",
           table: {
             data: [
@@ -120,109 +122,11 @@ const mailRouter = express.Router();
       let mailBody = mailGenerator.generate(email);
       let message = {
         from: '"Food Delivery Subsystem" <food-delivery-subsystem@hotmail.com>', // sender address
-    to: email_address, // list of receivers
+    to: "www.chintanchawda5445@gmail.com, 21bds013@iiitdwd.ac.in", // list of receivers
     subject: "Welcome to Food Delivery App !", // Subject line
     html: mailBody,
     text: mailGenerator.generatePlaintext(email)
       };
-
-      await transporter.sendMail(message, function(error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log("Email sent: " + info.response);
-        }
-      });
-
-        res.json();
-        
-    });
-
-//_____________________________________________PASSWORD UPDATED MAIL_______________________________
-
-    mailRouter.post("/mail/pass-updated", async (req, res) => {
-      const {name, email_address} = req.body;
-    let config  = {
-        service : "Hotmail",
-        auth : {
-            user: 'food-delivery-subsystem@hotmail.com',
-            pass: 'guhnbpnhvqhnvtit'
-        }
-    }
-
-    let transporter = nodemailer.createTransport(config);
-    
-
-
-// create mail generator
-const mailGenerator = new Mailgen({
-  theme: "default",
-  product: {
-    name: "Food Delivery App",
-    link: "https://myapp.com/"
-  }
-});
-
-// define email body
-const email = {
-  body: {
-    name: name,
-    intro: "Your password has been successfully updated!",
-    table: {
-      data: [
-        {
-          icon: "🔑",
-          title: "Password Updated",
-          description: "Your password has been updated successfully."
-        },
-        {
-          icon: "📧",
-          title: "Account Security",
-          description: "For security reasons, we recommend changing your password frequently."
-        },
-      ],
-      columns: {
-        // Optionally, customize the column widths
-        customWidth: {
-          icon: "10%",
-          title: "30%",
-          description: "60%"
-        },
-        // Optionally, customize the table colors
-        colors: {
-          headerBg: "#e53935",
-          headerColor: "#ffffff",
-          border: "#cccccc"
-        }
-      }
-    },
-    action: {
-      instructions: "If you did not change your password, please contact us immediately.",
-      button: {
-        color: "#e53935",
-        text: "Contact Us",
-        link: "https://myapp.com/contact"
-      }
-    },
-    text: "If you have any questions or concerns about your account, please don't hesitate to contact us.\n\nBest regards,\nThe MyApp Team",
-    signature: "The MyApp Team",
-    unsubscribe: {
-      text: "To unsubscribe from these emails, please click here:",
-      link: "https://myapp.com/unsubscribe"
-    }
-  }
-};
-
-// generate email content using mailGenerator
-const emailContent = mailGenerator.generate(email);
-
-// generate message using Nodemailer
-const message = {
-  from: '"Food Delivery Subsystem" <food-delivery-subsystem@hotmail.com>', // sender address
-  to: email_address,
-  subject: "Your Food Delivery App Password Has Been Updated",
-  html: emailContent
-};
 
       await transporter.sendMail(message, function(error, info) {
         if (error) {

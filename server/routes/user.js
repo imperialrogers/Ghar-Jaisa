@@ -1,7 +1,6 @@
 const express = require('express');
 const userRouter = express.Router();
 const auth = require("../middlewares/auth.js");
-const bcryptjs = require("bcryptjs");
 const { Product } = require('../models/product.js');
 const User = require("../models/user.js");
 const Order = require('../models/order.js');
@@ -85,7 +84,7 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
         let products= [];
         for(let i=0; i<cart.length; i++){
             let product= await Product.findById(cart[i].product._id);
-            if(product.availability == true){
+            if(product.quantity>= cart[i].quantity){
                 product.quantity -= cart[i].quantity;
             products.push({product, quantity: cart[i].quantity});
             await product.save();
@@ -93,7 +92,6 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
                 return res.status(400).json({msg: `${product.name} is out of stock`});
             }
         }
-
 
         let user = await User.findById(req.user);
         user.cart = [];
@@ -126,65 +124,6 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
     }
   });
 
-  //---------------------------UPDATE CREDENTIALSs----------------------------------
 
-  userRouter.post("/api/change/credentials", auth, async(req, res)=>{
-    try {
-        const {name, address} = req.body;
-        let user = await User.findById(req.user);
-        user.name = name;
-        user.address = address;
-        user = await user.save();
-        res.json(user);
-    } catch (e) {
-        res.status(500).json({ error: e.message });
-    }
-  });
-
-  userRouter.post("/api/change/email", auth, async(req, res)=>{
-    try {
-        const {email} = req.body;
-        let user = await User.findById(req.user);
-        user.email=email;
-        user.verified=1;
-        user = await user.save();
-        res.json(user);
-    } catch (e) {
-        res.status(500).json({ error: e.message });
-    }
-  });
-
-  //UPDATE PASSWORD
-  userRouter.post("/api/change/password", auth, async(req, res)=>{
-    try {
-        const {oldPassword, newPassword} = req.body;
-        let user = await User.findById(req.user);
-
-        const isMatch = await bcryptjs.compare(oldPassword, user.password);
-      if (!isMatch) {
-        return res.status(400).json({ msg: "Incorrect password." });
-      } else if(isMatch){
-        const hashedPassword = await bcryptjs.hash(newPassword, 8);
-        user.password = hashedPassword;
-        user = await user.save();
-        res.json(user);
-      }
-    } catch (e) {
-        res.status(500).json({ error: e.message });
-    }
-  });
-
-  //UPDATE PHONE NUMBER
-  userRouter.post("/api/change/phone", auth, async(req, res)=>{
-    try {
-        const {phone} = req.body;
-        let user = await User.findById(req.user);
-        user.phone = phone;
-        user = await user.save();
-        res.json(user);
-    } catch (e) {
-        res.status(500).json({ error: e.message });
-    }
-  });
 
 module.exports = userRouter;

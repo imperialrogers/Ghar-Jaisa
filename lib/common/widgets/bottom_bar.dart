@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:project_s4/constants/global_variables.dart';
-import 'package:project_s4/features/orders/screens/orders_screen.dart';
+import 'package:project_s4/features/orders/screens/orders_history_screen.dart';
 
 import '../../features/home/screens/home_screen.dart';
 
@@ -21,8 +21,8 @@ class _BottomBarState extends State<BottomBar> {
 
   //Screens
   List<Widget> pages = [
-    (HomeScreen()),
-    OrdersScreen(),
+    (const HomeScreen()),
+    OrdersHistoryScreen(),
   ];
 
   void updatePage(int page) {
@@ -75,7 +75,7 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.shopping_cart_checkout_sharp,
               ),
             ),
