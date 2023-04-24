@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
 import 'package:project_s4/features/cart/widgets/cart_product.dart';
-import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:project_s4/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -34,34 +33,36 @@ class _CartsScreenState extends State<CartsScreen> {
     }
 
     return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Text(
+            "Order Details",
+            style: TextStyle(
+                color: Color.fromARGB(200, 50, 53, 51),
+                fontWeight: FontWeight.w600,
+                fontSize: 19),
+          ),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+      ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios_rounded,
-                color: Colors.orange,
-                size: 15,
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(
-              top: 10,
-              left: 10,
-              bottom: 10,
-            ),
-            child: Text(
-              "Order Details",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
           Expanded(
             child: ListView.builder(
               itemCount:
@@ -72,7 +73,7 @@ class _CartsScreenState extends State<CartsScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 40),
             child: Container(
               // padding: EdgeInsets.all(0),
               decoration: BoxDecoration(
@@ -153,7 +154,7 @@ class _CartsScreenState extends State<CartsScreen> {
                           ),
                         ),
                         Text(
-                          '₹$totalSum', // replace with actual total
+                          '₹${totalSum}', // replace with actual total
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -166,14 +167,9 @@ class _CartsScreenState extends State<CartsScreen> {
                     ElevatedButton(
                       onPressed: () {
                         // TODO: Implement checkout logic
-                        Navigator.pushNamed(
-                          context,
-                          PaymentsScreen.routeName,
-                          arguments: (totalSum * 100).toString(),
-                        );
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
+                        primary: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),

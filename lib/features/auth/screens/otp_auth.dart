@@ -82,17 +82,33 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //SizedBox(height: 50),
-            IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-              color: Colors.orange,
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+
             const SizedBox(height: 10),
             const Text(
               'Enter the 4-digit verification code',
@@ -121,12 +137,12 @@ class _VerificationCodePageState extends State<VerificationCodePage> {
               child: ArgonTimerButton(
                 animationDuration: const Duration(microseconds: 0),
                 height: 50,
-                width: MediaQuery.of(context).size.width * 0.50,
-                minWidth: MediaQuery.of(context).size.width * 0.50,
+                width: MediaQuery.of(context).size.width * 0.30,
+                minWidth: MediaQuery.of(context).size.width * 0.20,
                 color: const Color(0xFF7866FE),
                 borderRadius: 5.0,
                 child: const Text(
-                  "                                       SEND OTP",
+                  "SEND OTP",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.black,

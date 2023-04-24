@@ -2,7 +2,6 @@
 
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:project_s4/common/widgets/bottom_bar.dart';
 import 'package:project_s4/constants/error_handling.dart';
 import 'package:project_s4/constants/utils.dart';
 import 'package:project_s4/models/product.dart';
@@ -67,41 +66,6 @@ class CartServices {
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
           userProvider.setUserFromModel(user);
           showSnackBar(context, "Successfully deleted from cart");
-        },
-      );
-    } catch (e) {
-      showSnackBar(context, e.toString());
-    }
-  }
-
-  // PLACE ORDER
-  void placeOrder({
-    required BuildContext context,
-    required double totalSum,
-  }) async {
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
-    try {
-      http.Response res = await http.post(Uri.parse('$uri/api/order'),
-          headers: {
-            'Content-Type': 'application/json; charset=UTF-8',
-            'x-auth-token': userProvider.user.token,
-          },
-          body: jsonEncode({
-            'cart': userProvider.user.cart,
-            'address': userProvider.user.address,
-            'totalPrice': (totalSum.toDouble() / 100).toString(),
-          }));
-
-      httpErrorHandle(
-        response: res,
-        context: context,
-        onSuccess: () {
-          showSnackBar(context, "Your Order has been placed");
-          User user = userProvider.user.copyWith(
-            cart: [],
-          );
-          userProvider.setUserFromModel(user);
-          Navigator.pushNamed(context, BottomBar.routeName);
         },
       );
     } catch (e) {
