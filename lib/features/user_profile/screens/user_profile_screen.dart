@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:project_s4/features/account/screens/change_password.dart';
+import 'package:project_s4/providers/user_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../constants/utils.dart';
+import '../../auth/screens/login_screen.dart';
 import '../widgets/bottom_sheet.dart';
 import './edit_profile_screen.dart';
 
@@ -11,8 +18,28 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      GoogleSignIn().signOut();
+
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        LoginScreen.routeName,
+        (route) => false,
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserProvider>(context);
+    final user = userProvider.user;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -86,10 +113,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    const Text(
-                      "Johnny Sins",
+                    Text(
+                      user.name,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -113,10 +140,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 const SizedBox(
                   height: 5,
                 ),
-                const Text(
-                  "Johnny@gmail.com",
+                Text(
+                  user.email,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.black38,
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
@@ -167,7 +194,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             fontSize: 20, fontWeight: FontWeight.w400),
                       ),
                       trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, ChangePassword.routeName);
+                      },
                     ),
                   ),
                 ),
@@ -192,6 +221,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       trailing: const Icon(Icons.arrow_forward_ios),
                       onTap: () {
                         // Perform logout action
+                        logOut(context);
                       },
                     ),
                   ),

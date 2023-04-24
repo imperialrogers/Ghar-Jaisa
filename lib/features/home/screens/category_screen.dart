@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s4/common/widgets/loader.dart';
 
 import '../../../models/product.dart';
 import '../services/home_services.dart';
@@ -60,7 +61,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       ),
       body: productList == null
-          ? const CircularProgressIndicator()
+          ? Center(
+              child: const Loader(),
+            )
           : Column(
               children: [
                 // const Padding(

@@ -5,10 +5,20 @@ MERGED from [:flutter_email_sender] /home/imperialrogers/Desktop/project_s4/buil
 MERGED from [:flutter_email_sender] /home/imperialrogers/Desktop/project_s4/build/flutter_email_sender/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-19:19
 MERGED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-19:19
+MERGED from [:razorpay_flutter] /home/imperialrogers/Desktop/project_s4/build/razorpay_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-10:19
+MERGED from [:razorpay_flutter] /home/imperialrogers/Desktop/project_s4/build/razorpay_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-10:19
+MERGED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-17:19
+MERGED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:5-17:19
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:41:5-64:19
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:41:5-64:19
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:22:5-38:19
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] /home/imperialrogers/.gradle/caches/transforms-3/04c816688db2a984be7b3694ea462c52/transformed/jetified-play-services-fido-20.0.1/AndroidManifest.xml:7:5-8:19
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] /home/imperialrogers/.gradle/caches/transforms-3/04c816688db2a984be7b3694ea462c52/transformed/jetified-play-services-fido-20.0.1/AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/8f477cd6b816a0e8038872c3ed81e0b4/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/8f477cd6b816a0e8038872c3ed81e0b4/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:30:5-36:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/57179d0b86fc5e43e2f27bc922bf4a64/transformed/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
@@ -42,14 +52,22 @@ MERGED from [:flutter_email_sender] /home/imperialrogers/Desktop/project_s4/buil
 MERGED from [:file_picker] /home/imperialrogers/Desktop/project_s4/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-19:12
 MERGED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-21:12
 MERGED from [:flutter_plugin_android_lifecycle] /home/imperialrogers/Desktop/project_s4/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:razorpay_flutter] /home/imperialrogers/Desktop/project_s4/build/razorpay_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-12:12
+MERGED from [:package_info_plus] /home/imperialrogers/Desktop/project_s4/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:fluttertoast] /home/imperialrogers/Desktop/project_s4/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:6:1-19:12
 MERGED from [:google_sign_in_android] /home/imperialrogers/Desktop/project_s4/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.1] /home/imperialrogers/.gradle/caches/transforms-3/27d6445aec3fd80f08088200c301c43a/transformed/multidex-2.0.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:2:1-66:12
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/e5ecb561b33282f611e0fcda16f468e3/transformed/jetified-appcompat-resources-1.5.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.appcompat:appcompat:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/dd7933181bcd1a44ab10530c6cc929bb/transformed/appcompat-1.5.1/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /home/imperialrogers/.gradle/caches/transforms-3/4590dc5895b3f66f829feea6ed891e3a/transformed/jetified-play-services-wallet-18.1.3/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/76525a7103e3342922a964ea8a16432b/transformed/jetified-play-services-auth-api-phone-18.0.1/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/imperialrogers/.gradle/caches/transforms-3/8651b3f6afdf425f526f6e7a6cd1196b/transformed/jetified-play-services-auth-base-18.0.4/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] /home/imperialrogers/.gradle/caches/transforms-3/04c816688db2a984be7b3694ea462c52/transformed/jetified-play-services-fido-20.0.1/AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/8f477cd6b816a0e8038872c3ed81e0b4/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/57179d0b86fc5e43e2f27bc922bf4a64/transformed/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-basement:18.2.0] /home/imperialrogers/.gradle/caches/transforms-3/10e411e408063a3ed7eb4e7e19983f6d/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:16:1-26:12
@@ -103,6 +121,8 @@ queries
 ADDED from /home/imperialrogers/Desktop/project_s4/android/app/src/main/AndroidManifest.xml:34:5-39:13
 MERGED from [:file_picker] /home/imperialrogers/Desktop/project_s4/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:15
 MERGED from [:file_picker] /home/imperialrogers/Desktop/project_s4/build/file_picker/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:15
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:10:5-39:15
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:10:5-39:15
 intent#action:name:android.intent.action.SENDTO+data:scheme:mailto
 ADDED from /home/imperialrogers/Desktop/project_s4/android/app/src/main/AndroidManifest.xml:35:5-38:14
 action#android.intent.action.SENDTO
@@ -127,22 +147,38 @@ MERGED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/buil
 MERGED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] /home/imperialrogers/Desktop/project_s4/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_plugin_android_lifecycle] /home/imperialrogers/Desktop/project_s4/build/flutter_plugin_android_lifecycle/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:razorpay_flutter] /home/imperialrogers/Desktop/project_s4/build/razorpay_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:razorpay_flutter] /home/imperialrogers/Desktop/project_s4/build/razorpay_flutter/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /home/imperialrogers/Desktop/project_s4/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:package_info_plus] /home/imperialrogers/Desktop/project_s4/build/package_info_plus/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] /home/imperialrogers/Desktop/project_s4/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:fluttertoast] /home/imperialrogers/Desktop/project_s4/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-11:41
+MERGED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-11:41
 MERGED from [:google_sign_in_android] /home/imperialrogers/Desktop/project_s4/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] /home/imperialrogers/Desktop/project_s4/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.multidex:multidex:2.0.1] /home/imperialrogers/.gradle/caches/transforms-3/27d6445aec3fd80f08088200c301c43a/transformed/multidex-2.0.1/AndroidManifest.xml:20:5-43
 MERGED from [androidx.multidex:multidex:2.0.1] /home/imperialrogers/.gradle/caches/transforms-3/27d6445aec3fd80f08088200c301c43a/transformed/multidex-2.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:6:5-44
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:6:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/e5ecb561b33282f611e0fcda16f468e3/transformed/jetified-appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat-resources:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/e5ecb561b33282f611e0fcda16f468e3/transformed/jetified-appcompat-resources-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/dd7933181bcd1a44ab10530c6cc929bb/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.5.1] /home/imperialrogers/.gradle/caches/transforms-3/dd7933181bcd1a44ab10530c6cc929bb/transformed/appcompat-1.5.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /home/imperialrogers/.gradle/caches/transforms-3/4590dc5895b3f66f829feea6ed891e3a/transformed/jetified-play-services-wallet-18.1.3/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-wallet:18.1.3] /home/imperialrogers/.gradle/caches/transforms-3/4590dc5895b3f66f829feea6ed891e3a/transformed/jetified-play-services-wallet-18.1.3/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/76525a7103e3342922a964ea8a16432b/transformed/jetified-play-services-auth-api-phone-18.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-api-phone:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/76525a7103e3342922a964ea8a16432b/transformed/jetified-play-services-auth-api-phone-18.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/imperialrogers/.gradle/caches/transforms-3/8651b3f6afdf425f526f6e7a6cd1196b/transformed/jetified-play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-auth-base:18.0.4] /home/imperialrogers/.gradle/caches/transforms-3/8651b3f6afdf425f526f6e7a6cd1196b/transformed/jetified-play-services-auth-base-18.0.4/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] /home/imperialrogers/.gradle/caches/transforms-3/04c816688db2a984be7b3694ea462c52/transformed/jetified-play-services-fido-20.0.1/AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-fido:20.0.1] /home/imperialrogers/.gradle/caches/transforms-3/04c816688db2a984be7b3694ea462c52/transformed/jetified-play-services-fido-20.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/8f477cd6b816a0e8038872c3ed81e0b4/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-identity:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/8f477cd6b816a0e8038872c3ed81e0b4/transformed/jetified-play-services-identity-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:18:5-43
 MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/57179d0b86fc5e43e2f27bc922bf4a64/transformed/jetified-play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
@@ -219,6 +255,10 @@ uses-permission#android.permission.INTERNET
 ADDED from /home/imperialrogers/Desktop/project_s4/android/app/src/debug/AndroidManifest.xml:7:5-66
 MERGED from [:google_sign_in_android] /home/imperialrogers/Desktop/project_s4/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
 MERGED from [:google_sign_in_android] /home/imperialrogers/Desktop/project_s4/build/google_sign_in_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-67
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:8:5-67
+MERGED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:8:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from /home/imperialrogers/Desktop/project_s4/android/app/src/debug/AndroidManifest.xml:7:22-64
 provider#com.sidlatau.flutteremailsender.FlutterEmailSenderFileProvider
@@ -257,6 +297,70 @@ ADDED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build
 		ADDED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
 	android:name
 		ADDED from [:image_picker_android] /home/imperialrogers/Desktop/project_s4/build/image_picker_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-82
+meta-data#com.google.android.gms.wallet.api.enabled
+ADDED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:9-16:36
+	android:value
+		ADDED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-33
+	android:name
+		ADDED from [:pay_android] /home/imperialrogers/Desktop/project_s4/build/pay_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-69
+intent#action:name:android.intent.action.VIEW+data:mimeType:*/*+data:scheme:*
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:11:9-17:18
+action#android.intent.action.VIEW
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:12:13-65
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:12:21-62
+intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:host:pay+data:mimeType:*/*+data:scheme:upi
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:18:9-27:18
+category#android.intent.category.BROWSABLE
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:21:13-74
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:21:23-71
+intent#action:name:android.intent.action.MAIN
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:28:9-30:18
+action#android.intent.action.MAIN
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:29:13-65
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:29:21-62
+intent#action:name:android.intent.action.SEND+data:mimeType:*/*
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:31:9-35:18
+action#android.intent.action.SEND
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:32:13-65
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:32:21-62
+intent#action:name:rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:36:9-38:18
+action#rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:37:13-61
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:37:21-58
+receiver#com.razorpay.RzpTokenReceiver
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:42:9-49:20
+	android:exported
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:44:13-36
+	tools:ignore
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:45:13-44
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:43:13-57
+intent-filter#action:name:rzp.device_token.share
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:46:13-48:29
+activity#com.razorpay.CheckoutActivity
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:51:9-59:20
+	android:exported
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:54:13-36
+	android:configChanges
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:53:13-83
+	android:theme
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:55:13-49
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:52:13-57
+intent-filter#action:name:android.intent.action.MAIN
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:56:13-58:29
+meta-data#com.razorpay.plugin.googlepay_all
+ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:61:9-63:58
+	android:value
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:63:13-55
+	android:name
+		ADDED from [com.razorpay:checkout:1.6.30] /home/imperialrogers/.gradle/caches/transforms-3/581111c54f76cb4efea32d10a5b2ff75/transformed/jetified-checkout-1.6.30/AndroidManifest.xml:62:13-61
 activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
 ADDED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:23:9-27:75
 	android:excludeFromRecents
@@ -277,6 +381,22 @@ ADDED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialroge
 		ADDED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:36:13-107
 	android:name
 		ADDED from [com.google.android.gms:play-services-auth:20.5.0] /home/imperialrogers/.gradle/caches/transforms-3/2f242034b75eb25a4a42e0262b447777/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:34:13-89
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:17.0.0] /home/imperialrogers/.gradle/caches/transforms-3/65c3d79f4b70360c3f41c220ada1d590/transformed/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
 activity#com.google.android.gms.common.api.GoogleApiActivity
 ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/imperialrogers/.gradle/caches/transforms-3/082fa8f1e076fd76c98f4d760b4e67b1/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
 	android:exported

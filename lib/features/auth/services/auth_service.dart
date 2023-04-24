@@ -42,6 +42,7 @@ class AuthService {
       );
       EmailValidator.validate(email);
 
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
       http.Response res = await http.post(Uri.parse('$uri/api/signup'),
           body: user.toJson(),
           headers: <String, String>{
@@ -52,6 +53,22 @@ class AuthService {
           context: context,
           onSuccess: () async {
             showSnackBar(context, 'Account Created!');
+
+            try {
+              await http.post(
+                Uri.parse('$uri/mail/welcome'),
+                headers: {
+                  'Content-Type': 'application/json; charset=UTF-8',
+                  'x-auth-token': userProvider.user.token,
+                },
+                body: jsonEncode({
+                  'email_address': email,
+                  'name': name,
+                }),
+              );
+            } catch (e) {
+              showSnackBar(context, e.toString());
+            }
             //**********************************SIGN IN USER**************************//
 
             try {
@@ -124,7 +141,7 @@ class AuthService {
     }
   }
 
-  //--------------------------------------FINDING EXISTING USER
+  //--------------------------------------FINDING EXISTING USER------------------------------
   userExists({
     required BuildContext context,
     required String email,
@@ -233,6 +250,36 @@ class AuthService {
           showSnackBar(context, "SUCCESS");
           Navigator.pushReplacementNamed(context, CongratsPage.routeName,
               arguments: 'Your Profile is now ready to use!');
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  //Veriftying OTP for Password Updation
+  void PassOtp({
+    required BuildContext context,
+    required String otp,
+  }) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      //
+      body.otp = otp;
+      http.Response res = await http.post(Uri.parse("$uri/api/otpVerify"),
+          body: body.toJson(),
+          headers: <String, String>{
+            'Content-Type': 'application/json; chatset=UTF-8',
+            'x-auth-token': token!
+          });
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "SUCCESS");
+          Navigator.pushReplacementNamed(context, CongratsPage.routeName,
+              arguments: 'Password Updated!');
         },
       );
     } catch (e) {
