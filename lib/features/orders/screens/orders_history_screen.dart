@@ -60,7 +60,7 @@ class OrdersHistoryScreen extends StatelessWidget {
               height: 135,
               child: Card(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                margin: const EdgeInsets.all(10.0),
+                margin: const EdgeInsets.all(11.0),
                 child: Column(
                   children: [
                     Row(

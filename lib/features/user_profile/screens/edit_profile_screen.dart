@@ -109,6 +109,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         },
                         decoration: const InputDecoration(
                           hintText: 'Enter your name',
+                          
                         ),
                       ),
                       const SizedBox(height: 16.0),
