@@ -18,6 +18,7 @@ class SearchServices {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Product> productList = [];
     try {
+      print(userProvider.user.token);
       http.Response res = await http
           .get(Uri.parse('$uri/api/products/search/$searchQuery'), headers: {
         'Content-Type': 'application/json; charset=UTF-8',

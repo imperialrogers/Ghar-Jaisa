@@ -34,7 +34,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         title: const Text(
           'Edit Profile',
           style: TextStyle(

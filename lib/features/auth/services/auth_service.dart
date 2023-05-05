@@ -124,7 +124,7 @@ class AuthService {
     }
   }
 
-  //--------------------------------------FINDING EXISTING USER
+  //--------------------------------------FINDING EXISTING USER--------------------
   userExists({
     required BuildContext context,
     required String email,

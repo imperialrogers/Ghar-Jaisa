@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:project_s4/features/account/screens/reset_password.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../constants/utils.dart';
@@ -192,7 +193,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                             fontSize: 20, fontWeight: FontWeight.w400),
                       ),
                       trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, ResetPasswordScreen.routeName);
+                      },
                     ),
                   ),
                 ),

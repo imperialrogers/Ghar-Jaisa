@@ -178,7 +178,7 @@ authRouter.get("/", auth, async (req, res) => {
   .create({
     body: `Your otp is ${otp} for the FOOD DeliVery`,
     // to: `+918528469069`,
-    to: `+91${phone}`,
+    to: `+919408698359`,
     from: `+447883305299`,
   })
   .then((message) => console.log(message))
@@ -236,13 +236,30 @@ authRouter.get("/", auth, async (req, res) => {
   
 
 //__________________________________CHANGE USER PASSWORD_________________________________
-//*****to do*****/
-authRouter.post("/update-password" ,async(req, res) => {
+
+authRouter.post("/api/reset-password" , auth ,async(req, res) => {
     try {
-        const {id, password, newPassword}=req.body;
+        const {password, newPassword}=req.body;
+
         const token = req.header("x-auth-token");
         const verified = jwt.verify(token, "passwordKey");
         const user = await User.findById(verified.id);
+;
+    //VALIDATION: Checking for the password matching
+      const isMatch = await bcryptjs.compare(password, user.password);
+      if (isMatch==false) {
+        return res.status(400).json({ msg: "Incorrect password." });
+      } 
+        const hashedPassword = await bcryptjs.hash(newPassword, 8);
+        user.password=hashedPassword;
+
+       //****************post data in the database**********************
+        await user.save(); 
+        token = jwt.sign({id: user._id,}, "passwordKey");
+      res.json({token, ...user._doc});
+                
+
+
     } catch (e) {
         res.status(500).json({error: e.message});
     }
