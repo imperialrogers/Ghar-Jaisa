@@ -14,6 +14,7 @@ import 'package:project_s4/features/home/screens/notifications.dart';
 import 'package:project_s4/features/home/screens/view_all_screen.dart';
 import 'package:project_s4/features/home/widgets/app_drawer.dart';
 import 'package:project_s4/features/orders/screens/orders_history_screen.dart';
+import 'package:project_s4/features/payment/screens/payment_screen.dart';
 
 import 'package:project_s4/features/search/screens/search_screen.dart';
 import 'package:project_s4/features/user_profile/screens/edit_profile_screen.dart';
@@ -153,6 +154,15 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ResetPasswordScreen(),
+      );
+
+    case PaymentScreen.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => PaymentScreen(
+          totalAmount: totalAmount,
+        ),
       );
 
     default:

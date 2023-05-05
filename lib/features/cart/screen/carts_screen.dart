@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
 import 'package:project_s4/features/cart/widgets/cart_product.dart';
+import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:project_s4/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -167,6 +168,8 @@ class _CartsScreenState extends State<CartsScreen> {
                     ElevatedButton(
                       onPressed: () {
                         // TODO: Implement checkout logic
+                        Navigator.pushNamed(context, PaymentScreen.routeName,
+                            arguments: totalSum.toString());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
