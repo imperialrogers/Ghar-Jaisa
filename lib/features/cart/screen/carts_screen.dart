@@ -22,7 +22,8 @@ class _CartsScreenState extends State<CartsScreen> {
     final CartServices cartServices = CartServices();
 
     //Calculating Logic
-    final user = context.watch<UserProvider>().user;
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    final user = userProvider.user;
     int sum = 0;
     user.cart
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
@@ -169,7 +170,7 @@ class _CartsScreenState extends State<CartsScreen> {
                       onPressed: () {
                         // TODO: Implement checkout logic
                         Navigator.pushNamed(context, PaymentScreen.routeName,
-                            arguments: totalSum.toString());
+                            arguments: (totalSum * 100).toString());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,

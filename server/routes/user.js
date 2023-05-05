@@ -1,6 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 const auth = require("../middlewares/auth.js");
+const jwt = require("jsonwebtoken");
 const { Product } = require('../models/product.js');
 const User = require("../models/user.js");
 const Order = require('../models/order.js');
@@ -84,18 +85,19 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
         let products= [];
         for(let i=0; i<cart.length; i++){
             let product= await Product.findById(cart[i].product._id);
-            if(product.quantity>= cart[i].quantity){
-                product.quantity -= cart[i].quantity;
-            products.push({product, quantity: cart[i].quantity});
+            if(product.availability==true){
+              products.push({product, quantity: cart[i].quantity});
+
             await product.save();
             } else {
-                return res.status(400).json({msg: `${product.name} is out of stock`});
+                return res.status(400).json({msg: `${product.name} not available`});
             }
         }
 
         let user = await User.findById(req.user);
         user.cart = [];
         user = await user.save();
+
 
         let order = new Order({
             products,
@@ -104,7 +106,6 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
             userId: req.user,
             orderedAt: new Date().getTime(),
         });
-
         order = await order.save();
 
         res.json(order);
@@ -119,6 +120,25 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
     try {
       const orders = await Order.find({ userId: req.user });
       res.json(orders);
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  });
+
+  //Change Credentials
+  userRouter.post("/api/change-crendentials", async(req, res)=>{
+    try {
+      const {email, fname, lname, address} = req.body;
+      const token = req.header("x-auth-token");
+      const verified = jwt.verify(token, "passwordKey");
+      let user = await User.findById(verified.id);
+      // let user = await User.findById(req.user);
+      console.log(user);
+      user.name = fname+" "+lname;
+      console.log(fname);
+      user.address=address;
+      user=await user.save();
+      res.json(user);
     } catch (e) {
       res.status(500).json({ error: e.message });
     }

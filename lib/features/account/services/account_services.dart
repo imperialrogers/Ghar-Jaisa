@@ -68,4 +68,46 @@ class AccountServices {
       showSnackBar(context, e.toString());
     }
   }
+
+  void updateCredentials(
+    BuildContext context,
+    String fname,
+    String lname,
+    String address,
+  ) async {
+    try {
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      final user = userProvider.user;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      http.Response res = await http.post(
+          Uri.parse('$uri/api/change-crendentials'),
+          body: jsonEncode({
+            'email': user.email,
+            'fname': fname,
+            'lname': lname,
+            'address': address
+          }),
+          headers: <String, String>{
+            'Content-Type': 'application/json; chatset=UTF-8',
+            'x-auth-token': token!
+          });
+      httpErrorHandle(
+          response: res,
+          context: context,
+          onSuccess: () async {
+            try {
+              await http.get(Uri.parse('$uri/mail/welcome'),
+                  headers: <String, String>{
+                    'Content-Type': 'application/json; chatset=UTF-8',
+                  });
+            } catch (e) {
+              showSnackBar(context, e.toString());
+            }
+            showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY");
+          });
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
 }
