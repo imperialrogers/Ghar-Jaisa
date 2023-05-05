@@ -12,7 +12,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _phoneController = TextEditingController();
-  final _bioController = TextEditingController();
+
   bool _isLoading = false;
 
   @override

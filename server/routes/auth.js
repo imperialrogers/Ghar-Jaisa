@@ -178,7 +178,7 @@ authRouter.get("/", auth, async (req, res) => {
   .create({
     body: `Your otp is ${otp} for the FOOD DeliVery`,
     // to: `+918528469069`,
-    to: `+919408698359`,
+    to: `+91${phone}`,
     from: `+447883305299`,
   })
   .then((message) => console.log(message))
@@ -240,7 +240,9 @@ authRouter.get("/", auth, async (req, res) => {
 authRouter.post("/update-password" ,async(req, res) => {
     try {
         const {id, password, newPassword}=req.body;
-        
+        const token = req.header("x-auth-token");
+        const verified = jwt.verify(token, "passwordKey");
+        const user = await User.findById(verified.id);
     } catch (e) {
         res.status(500).json({error: e.message});
     }
