@@ -6,6 +6,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:project_s4/common/screens/congrats.dart';
 import 'package:project_s4/common/widgets/bottom_bar.dart';
+import 'package:project_s4/features/account/screens/reset_password.dart';
 import 'package:project_s4/features/auth/models/otp_login_response.dart';
 
 import 'package:project_s4/providers/user_provider.dart';
@@ -233,6 +234,36 @@ class AuthService {
           showSnackBar(context, "SUCCESS");
           Navigator.pushReplacementNamed(context, CongratsPage.routeName,
               arguments: 'Your Profile is now ready to use!');
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  //Veriftying OTP
+  void verifyPasswordOtp({
+    required BuildContext context,
+    required String otp,
+  }) async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      //
+      body.otp = otp;
+      http.Response res = await http.post(Uri.parse("$uri/api/otpVerify"),
+          body: body.toJson(),
+          headers: <String, String>{
+            'Content-Type': 'application/json; chatset=UTF-8',
+            'x-auth-token': token!
+          });
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "SUCCESS");
+          Navigator.pushReplacementNamed(
+              context, ResetPasswordScreen.routeName);
         },
       );
     } catch (e) {

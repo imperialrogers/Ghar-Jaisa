@@ -18,7 +18,8 @@ class SearchServices {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Product> productList = [];
     try {
-      print(userProvider.user.token);
+      // ignore: unnecessary_null_comparison
+      if (searchQuery == null || searchQuery == "") searchQuery = " ";
       http.Response res = await http
           .get(Uri.parse('$uri/api/products/search/$searchQuery'), headers: {
         'Content-Type': 'application/json; charset=UTF-8',

@@ -1,7 +1,8 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:project_s4/common/widgets/bottom_bar.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
-import 'package:project_s4/features/orders/screens/orders_history_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
@@ -56,7 +57,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     final user = userProvider.user;
     try {
-      print("here");
       cartServices.placeOrder(
         context: context,
         address: "jihjklhjkl",

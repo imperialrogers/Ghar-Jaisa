@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_s4/common/screens/congrats.dart';
 import 'package:project_s4/common/screens/privacy_policy.dart';
 import 'package:project_s4/common/widgets/bottom_bar.dart';
+import 'package:project_s4/features/account/screens/otp_password.dart';
 import 'package:project_s4/features/account/screens/reset_password.dart';
 import 'package:project_s4/features/admin/screens/add_products_screen.dart';
 import 'package:project_s4/features/auth/screens/otp_auth.dart';
@@ -162,6 +163,15 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => PaymentScreen(
           totalAmount: totalAmount,
+        ),
+      );
+
+    case PasswordOtpPage.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => PasswordOtpPage(
+          phoneN: totalAmount,
         ),
       );
 
