@@ -4,9 +4,9 @@ import '../../../models/orders.dart';
 import '../../account/services/account_services.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
-  final String orderNumber;
+  final Order order;
 
-  const OrderDetailsScreen({super.key, required this.orderNumber});
+  const OrderDetailsScreen({super.key, required this.order});
 
   @override
   State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
@@ -73,38 +73,73 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
             const SizedBox(
               height: 10,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  width: 20,
+                ),
+                Image.asset(
+                  height: 25,
+                  width: 25,
+                  'assets/images/veg.png',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  widget.order.id,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                )
+              ],
+            ),
+            //
+            //
+            for (int i = 0; i < widget.order.products.length; i++)
+              Row(
+                children: [
+                  Image.network(
+                    widget.order.products[i].images[0],
+                    height: 120,
+                    width: 120,
+                  ),
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.order.products[i].name,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          'Qty: ${widget.order.quantity[i]}',
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            //
+            //
+
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Image.asset(
-                      height: 25,
-                      width: 25,
-                      'assets/images/veg.png',
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      widget.orderNumber,
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
-                const Align(
-                  widthFactor: 4.5,
-                  heightFactor: 2,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Quantity: Half',
-                    style: TextStyle(fontSize: 13, color: Colors.black54),
-                  ),
-                ),
+                // const Align(
+                //   widthFactor: 4.5,
+                //   heightFactor: 2,
+                //   alignment: Alignment.centerLeft,
+                //   child: Text(
+                //     'Quantity: Half',
+                //     style: TextStyle(fontSize: 13, color: Colors.black54),
+                //   ),
+                // ),
                 const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -211,10 +246,10 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
                         'Grand Total',
@@ -225,10 +260,11 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
+                      padding:
+                          const EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
                       child: Text(
-                        '₹125.0',
-                        style: TextStyle(
+                        "₹${widget.order.totalPrice}",
+                        style: const TextStyle(
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.w600),

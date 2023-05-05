@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, unnecessary_string_interpolations
+// ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:project_s4/common/widgets/loader.dart';
@@ -34,13 +34,33 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
     setState(() {});
   }
 
-  // String formattedDate =
-  //     DateFormat('dd MMM yyyy @ h:mm a').format(DateTime.now()).toString();
+  String getOrderName() {
+    String res = "";
+
+    return res;
+  }
+
+  String formattedDate =
+      DateFormat('dd MMM yyyy @ h:mm a').format(DateTime.now()).toString();
 
   final List<String> status = [
+    "Ordered",
     "Cooking",
     "In Delivery",
-    "Delivered",
+    "Delivered"
+  ];
+
+  final List<String> orders = [
+    'OrderName 1',
+    'OrderName 2',
+    'OrderName 3',
+    'OrderName 4',
+    'OrderName 5',
+    'OrderName 6',
+    'OrderName 7',
+    'OrderName 8',
+    'OrderName 9',
+    'OrderName 10',
   ];
 
   @override
@@ -75,7 +95,7 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            OrderDetailsScreen(orderNumber: orderss![index].id),
+                            OrderDetailsScreen(order: orderss![index]),
                       ),
                     );
                   },
@@ -114,7 +134,7 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
                                     Text(
                                         '${orderss![index].products[0].name} X ${orderss![index].quantity}',
                                         softWrap: true,
-                                        // overflow: ,
+                                        overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w600)),
@@ -152,10 +172,10 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
                               Padding(
                                 padding: const EdgeInsets.all(9.0),
                                 child: Text(
-                                  "${DateFormat().format(
+                                  DateFormat().format(
                                     DateTime.fromMillisecondsSinceEpoch(
-                                        orderss![0].orderedAt),
-                                  )}",
+                                        orderss![index].orderedAt),
+                                  ),
                                   style: const TextStyle(
                                       color: Color.fromARGB(200, 50, 53, 51),
                                       fontWeight: FontWeight.w600,
