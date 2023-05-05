@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
+import 'package:project_s4/common/screens/privacy_policy.dart';
 import 'package:project_s4/features/auth/screens/login_screen.dart';
 import 'package:project_s4/features/home/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -126,14 +127,9 @@ class _AppDrawerState extends State<AppDrawer> {
                   indent: 75,
                   endIndent: 30,
                 ),
-                DrawerList(Icons.discount_outlined, 'Offer and Promo', () {}),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                DrawerList(
-                    Icons.text_snippet_outlined, 'Privacy Policy', () {}),
+                DrawerList(Icons.text_snippet_outlined, 'Privacy Policy', () {
+                  Navigator.pushNamed(context, PrivacyPolicyScreen.routeName);
+                }),
                 const Divider(
                   color: Colors.white,
                   indent: 75,

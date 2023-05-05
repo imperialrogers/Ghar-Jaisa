@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'add_to_cart_button.dart';
 
 // ignore: must_be_immutable
 class FoodTitleWidget extends StatelessWidget {

@@ -1,4 +1,4 @@
-// ignore_for_file: unused_local_variable, avoid_print
+// ignore_for_file: unused_local_variable, avoid_print, unnecessary_brace_in_string_interps
 
 import 'package:flutter/material.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
@@ -169,7 +169,7 @@ class _CartsScreenState extends State<CartsScreen> {
                         // TODO: Implement checkout logic
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
