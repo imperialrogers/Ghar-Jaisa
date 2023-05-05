@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 
-class OrderDetailsScreen extends StatelessWidget {
+import '../../../models/orders.dart';
+import '../../account/services/account_services.dart';
+
+class OrderDetailsScreen extends StatefulWidget {
   final String orderNumber;
 
-  OrderDetailsScreen({required this.orderNumber});
+  const OrderDetailsScreen({super.key, required this.orderNumber});
+
+  @override
+  State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
+}
+
+class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
+  List<Order>? orderss;
+  final AccountServices accountServices = AccountServices();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchOrders();
+  }
+
+  void fetchOrders() async {
+    orderss = await accountServices.fetchMyOrders(context: context);
+    setState(() {});
+  }
+
+  void getOrderDetails() {
+    for (int i = 0; i < orderss!.length; i++) {}
+  }
+
+  List<String>? orderName;
+  List<String>? orderQ;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +90,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       width: 10,
                     ),
                     Text(
-                      orderNumber,
+                      widget.orderNumber,
                       style: const TextStyle(
                           fontSize: 18, fontWeight: FontWeight.w500),
                     )
@@ -76,9 +105,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 13, color: Colors.black54),
                   ),
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 5),
                       child: Text(
@@ -104,9 +133,9 @@ class OrderDetailsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -129,9 +158,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -154,9 +183,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -182,9 +211,9 @@ class OrderDetailsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(

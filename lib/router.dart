@@ -7,6 +7,7 @@ import 'package:project_s4/common/widgets/bottom_bar.dart';
 import 'package:project_s4/features/account/screens/otp_password.dart';
 import 'package:project_s4/features/account/screens/reset_password.dart';
 import 'package:project_s4/features/admin/screens/add_products_screen.dart';
+import 'package:project_s4/features/admin/screens/orders-details.dart';
 import 'package:project_s4/features/auth/screens/otp_auth.dart';
 import 'package:project_s4/features/cart/screen/carts_screen.dart';
 import 'package:project_s4/features/feedback/screens/feedback_screen.dart';
@@ -24,6 +25,7 @@ import 'package:project_s4/screens/fill_bio.dart';
 import 'features/auth/screens/login_screen.dart';
 import 'features/auth/screens/signup_screen.dart';
 import 'features/home/screens/home_screen.dart';
+import 'models/orders.dart';
 
 Route<dynamic>? generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -155,6 +157,15 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ResetPasswordScreen(),
+      );
+
+    case OrdersDScreen.routeName:
+      var order = routeSettings.arguments as Order;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => OrdersDScreen(
+          order: order,
+        ),
       );
 
     case PaymentScreen.routeName:

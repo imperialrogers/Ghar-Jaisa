@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_s4/features/admin/screens/posts_screen.dart';
 
 import '../../../constants/global_variables.dart';
+import 'orders_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
@@ -19,9 +20,7 @@ class _AdminScreenState extends State<AdminScreen> {
 
   List<Widget> pages = [
     PostScreen(),
-    Center(
-      child: Text('Orders Summary'),
-    ),
+    OrdersScreen(),
     Center(
       child: Text('Analytics'),
     ),
