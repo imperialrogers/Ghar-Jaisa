@@ -186,12 +186,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Text("Don't have and account ?"),
                   TextButton(
-                      onPressed: () {
-                        GoogleSignIn().signOut();
-                        Navigator.pushReplacementNamed(
-                            context, SignUpScreen.routeName);
-                      },
-                      child: const Text("Sign Up")),
+                    onPressed: () {
+                      GoogleSignIn().signOut();
+                      Navigator.pushReplacementNamed(
+                          context, SignUpScreen.routeName);
+                    },
+                    child: const Text("Sign Up"),
+                  ),
                 ],
               ),
               // ElevatedButton(

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_s4/common/screens/congrats.dart';
+import 'package:project_s4/common/screens/privacy_policy.dart';
 import 'package:project_s4/common/widgets/bottom_bar.dart';
 import 'package:project_s4/features/admin/screens/add_products_screen.dart';
 import 'package:project_s4/features/auth/screens/otp_auth.dart';
@@ -133,6 +134,12 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ViewAllScreen(),
+      );
+
+    case PrivacyPolicyScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => PrivacyPolicyScreen(),
       );
 
     default:
