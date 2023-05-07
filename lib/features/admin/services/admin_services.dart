@@ -66,7 +66,7 @@ class AdminServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, 'Product Added Successfully!');
+          showSnackBar(context, 'Product Added Successfully!', 1);
           Navigator.pop(context);
         },
       );
@@ -74,7 +74,7 @@ class AdminServices {
       //
     } catch (e) {
       print(e.toString());
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -105,7 +105,7 @@ class AdminServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return productList;
   }
@@ -135,11 +135,11 @@ class AdminServices {
         context: context,
         onSuccess: () {
           onSuccess();
-          showSnackBar(context, "Product Deleted Successfully");
+          showSnackBar(context, "Product Deleted Successfully", 1);
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -170,7 +170,7 @@ class AdminServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return orderList;
   }
@@ -203,7 +203,7 @@ class AdminServices {
         onSuccess: onSuccess,
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -218,7 +218,6 @@ class AdminServices {
         'x-auth-token': userProvider.user.token,
       });
 
-      // ignore: use_build_context_synchronously
       httpErrorHandle(
         response: res,
         context: context,
@@ -235,7 +234,7 @@ class AdminServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return {
       'sales': sales,

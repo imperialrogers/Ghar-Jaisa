@@ -87,6 +87,86 @@ class PrivacyPolicyScreen extends StatelessWidget {
             Text(
               'We are not liable for any indirect, incidental, special, or consequential damages arising out of or in connection with our food delivery app or its content. Our liability is limited to the amount paid by the user for the service.',
             ),
+            Text(
+              'Interpretation',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.',
+            ),
+            Text(
+              'Definitions',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.',
+            ),
+            Text(
+              'Privacy Policy',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We at XYZ Inc. ("we," "us," "our") respect your privacy and want you to understand how we collect, use, and share data about you. This Privacy Policy covers our data practices when you use our Flutter mobile application ("App").',
+            ),
+            Text(
+              'Data We Collect',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We collect data you provide to us when you use the App, such as your name, email address, and other contact information. We also collect information about your usage of the App, such as the features you use and the actions you take within the App.',
+            ),
+            Text(
+              'How We Use Your Data',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We may use your data to operate and improve the App, to respond to your requests and inquiries, to personalize your experience with the App, and for other purposes consistent with this Privacy Policy. We may also use your data to communicate with you about updates to the App, promotional offers, and other marketing materials. If you do not want to receive such communications, you may opt out at any time.',
+            ),
+            Text(
+              'Sharing of Your Data',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We may share your data with third-party service providers who perform services on our behalf, such as data analytics, customer support, and marketing. We may also share your data with our affiliates or other third parties for their own purposes, such as to provide you with targeted advertising. We may also share your data if required by law or to protect our rights or the rights of others.',
+            ),
+            Text(
+              'Data Security',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We take reasonable measures to protect your data from unauthorized access, alteration, disclosure, or destruction. However, we cannot guarantee the security of your data, and you use the App at your own risk.',
+            ),
+            Text(
+              'Childrens Privacy',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'The App is not intended for use by children under the age of 13, and we do not knowingly collect data from children under the age of 13. If we become aware that we have collected data from a child under the age of 13, we will take steps to delete the data as soon as possible.',
+            ),
+            Text(
+              'Changes to this Privacy Policy',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'We may update this Privacy Policy from time to time by posting a new version on our website. We encourage you to review this Privacy Policy periodically for any changes.',
+            ),
+            Text(
+              'Contact Us',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'If you have any questions about this Privacy Policy, please contact us at privacy@gmail.com.',
+            ),
           ],
         ),
       ),

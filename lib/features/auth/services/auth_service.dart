@@ -52,7 +52,7 @@ class AuthService {
           response: res,
           context: context,
           onSuccess: () async {
-            showSnackBar(context, 'Account Created!');
+            showSnackBar(context, 'Account Created!', 1);
             //**********************************SIGN IN USER**************************//
 
             try {
@@ -81,13 +81,13 @@ class AuthService {
                     );
                   });
             } catch (e) {
-              showSnackBar(context, e.toString());
+              showSnackBar(context, e.toString(), 0);
             }
 
             //**************************************************************** */
           });
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -121,7 +121,7 @@ class AuthService {
             );
           });
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -171,7 +171,7 @@ class AuthService {
         userProvider.setUser(userRes.body);
       }
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -186,7 +186,7 @@ class AuthService {
       Pattern pattern = r'/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/';
       RegExp regex = RegExp(pattern.toString());
       if (regex.hasMatch(phone)) {
-        showSnackBar(context, "Please enter a valid Phone Number");
+        showSnackBar(context, "Please enter a valid Phone Number", 0);
         return;
       }
 
@@ -202,12 +202,12 @@ class AuthService {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "OTP HAS BEEN SENT");
+          showSnackBar(context, "OTP HAS BEEN SENT", 1);
         },
       );
       body.data = res.body.substring(1, res.body.length - 1);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -231,13 +231,13 @@ class AuthService {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "SUCCESS");
+          showSnackBar(context, "SUCCESS", 1);
           Navigator.pushReplacementNamed(context, CongratsPage.routeName,
               arguments: 'Your Profile is now ready to use!');
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -261,13 +261,13 @@ class AuthService {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "SUCCESS");
+          showSnackBar(context, "SUCCESS", 1);
           Navigator.pushReplacementNamed(
               context, ResetPasswordScreen.routeName);
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String uri = 'https://food-delivery-subsystem.onrender.com:3000';
+String uri = 'http://10.0.7.98:3000';
 
 class GlobalVariables {
   // COLORS
