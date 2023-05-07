@@ -53,32 +53,35 @@ class FeedBackScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            TextField(
-              cursorHeight: 25,
-              decoration: InputDecoration(
-                labelText: "Enter Feedback",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20,
               ),
-              controller: _feedbackController,
-              keyboardType: TextInputType.multiline,
-              cursorColor: Colors.orange,
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            CustomButton(
-                text: "Submit FeedBack",
-                onTap: () {
-                  sendMail(_feedbackController.text);
-                }),
-          ],
+              TextField(
+                maxLines: 10,
+                cursorHeight: 25,
+                decoration: InputDecoration(
+                    labelText: "Enter Feedback",
+                    floatingLabelAlignment: FloatingLabelAlignment.start),
+                controller: _feedbackController,
+                keyboardType: TextInputType.multiline,
+                cursorColor: Colors.orange,
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              CustomButton(
+                  text: "Submit FeedBack",
+                  onTap: () {
+                    sendMail(_feedbackController.text);
+                  }),
+            ],
+          ),
         ),
       ),
     );

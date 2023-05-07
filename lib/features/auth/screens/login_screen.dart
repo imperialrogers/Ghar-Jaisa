@@ -61,10 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
         authService.signInUser(
             context: context, email: data.email, password: data.email);
       } else {
-        showSnackBar(context, "$x");
+        showSnackBar(context, "$x", 0);
       }
     } catch (error) {
-      showSnackBar(context, error.toString());
+      showSnackBar(context, error.toString(), 0);
     }
   }
 

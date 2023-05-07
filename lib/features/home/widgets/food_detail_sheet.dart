@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+
+import '../../../models/product.dart';
 import './food_title_widget.dart';
 
 class FoodDetailSheet extends StatefulWidget {
+  final Product product;
+  const FoodDetailSheet({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
+
   @override
+  // ignore: library_private_types_in_public_api
   _FoodDetailSheetState createState() => _FoodDetailSheetState();
 }
 
@@ -34,7 +43,7 @@ class _FoodDetailSheetState extends State<FoodDetailSheet> {
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Image.asset(
-              'assets/images/malai_chaap.jpeg',
+              widget.product.images[0],
               fit: BoxFit.cover,
               height: 260,
             ),
@@ -51,10 +60,9 @@ class _FoodDetailSheetState extends State<FoodDetailSheet> {
             ),
           ),
           FoodTitleWidget(
-            productName: "Khaana",
-            productPrice: '100 ₹',
-            productDescription:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            productName: widget.product.name,
+            productPrice: '₹ ${widget.product.price}',
+            productDescription: widget.product.description,
           ),
         ],
       ),
