@@ -68,12 +68,6 @@ class _PostScreenState extends State<PostScreen> {
     return products == null
         ? const Loader()
         : Scaffold(
-            appBar: AppBar(actions: [
-              ElevatedButton(
-                onPressed: () => logOut(context),
-                child: Text("SIGN-OUT"),
-              ),
-            ]),
             body: GridView.builder(
               itemCount: products!.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -82,20 +76,24 @@ class _PostScreenState extends State<PostScreen> {
                 final productData = products![index];
                 return Column(
                   children: [
-                    SizedBox(
-                      height: 140,
-                      child: SingleProduct(
-                        image: productData.images[0],
-                      ),
+                    SingleProduct(
+                      image: productData.images[0],
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Expanded(
-                          child: Text(
-                            productData.name,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 2,
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 18.0),
+                            child: Text(
+                              productData.name,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                              ),
+                            ),
                           ),
                         ),
                         IconButton(
@@ -104,6 +102,7 @@ class _PostScreenState extends State<PostScreen> {
                           },
                           icon: const Icon(
                             Icons.delete_outline,
+                            color: Colors.redAccent,
                           ),
                         ),
                       ],
@@ -113,9 +112,13 @@ class _PostScreenState extends State<PostScreen> {
               },
             ),
             floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.orange,
+              elevation: 2,
               onPressed: navigateToAddProduct,
               tooltip: 'Add a Product',
-              child: const Icon(Icons.add),
+              child: const Icon(
+                Icons.add,
+              ),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerFloat,

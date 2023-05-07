@@ -16,9 +16,12 @@ class CategoryProductsChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return charts.BarChart(
-      seriesList,
-      animate: true,
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: charts.BarChart(
+        seriesList,
+        animate: true,
+      ),
     );
   }
 }
