@@ -43,7 +43,7 @@ class SearchServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return productList;
   }
@@ -56,7 +56,7 @@ class SearchServices {
     try {
       // ignore: unnecessary_null_comparison
       http.Response res =
-          await http.get(Uri.parse('$uri/api/products'), headers: {
+          await http.get(Uri.parse('$uri/api/products-all'), headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         'x-auth-token': userProvider.user.token,
       });
@@ -78,7 +78,7 @@ class SearchServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return productList;
   }

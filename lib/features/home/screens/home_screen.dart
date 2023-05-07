@@ -37,15 +37,15 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                            context, NotificationPage.routeName);
-                      },
-                      icon: const Icon(
-                        Icons.notifications_none,
-                        color: Colors.orange,
-                        size: 30,
-                      )),
+                    onPressed: () {
+                      Navigator.pushNamed(context, NotificationPage.routeName);
+                    },
+                    icon: const Icon(
+                      Icons.notifications_none,
+                      color: Colors.orange,
+                      size: 30,
+                    ),
+                  ),
                 )
               ],
             ),
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const Text(
-                        'Nearest Restaurant',
+                        "Nearest Restaurant",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,

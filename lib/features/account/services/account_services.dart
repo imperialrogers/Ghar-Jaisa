@@ -43,7 +43,7 @@ class AccountServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return orderList;
   }
@@ -59,7 +59,7 @@ class AccountServices {
         (route) => false,
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -89,17 +89,17 @@ class AccountServices {
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
             } catch (e) {
-              showSnackBar(context, e.toString());
+              showSnackBar(context, e.toString(), 0);
             }
             //Navigating to the Home Screen
             Navigator.pushNamed(
               context,
               BottomBar.routeName,
             );
-            showSnackBar(context, "PASSWORD UPDATED SUCCESSFULLY");
+            showSnackBar(context, "PASSWORD UPDATED SUCCESSFULLY", 1);
           });
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -135,13 +135,13 @@ class AccountServices {
                   headers: <String, String>{
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
-              showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY");
+              showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY", 1);
             } catch (e) {
-              showSnackBar(context, e.toString());
+              showSnackBar(context, e.toString(), 0);
             }
           });
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 }

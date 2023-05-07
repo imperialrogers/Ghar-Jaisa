@@ -49,7 +49,7 @@ class _AppDrawerState extends State<AppDrawer> {
         (route) => false,
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -94,88 +94,91 @@ class _AppDrawerState extends State<AppDrawer> {
         body: widget.childWidget,
       ),
       drawer: SafeArea(
-        child: Container(
-          child: ListTileTheme(
-            textColor: Colors.white,
-            iconColor: Colors.white,
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                SizedBox(height: 80),
-                DrawerList(
-                  Icons.home,
-                  'Home',
-                  _navigateToHome,
-                ),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                DrawerList(Icons.account_circle_rounded, 'Profile', () {
-                  Navigator.of(context).pushNamed(UserProfileScreen.routeName);
-                }),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                DrawerList(Icons.shopping_cart_checkout_sharp, 'Orders',
-                    _navigateToOrders),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                DrawerList(Icons.text_snippet_outlined, 'Privacy Policy', () {
-                  Navigator.pushNamed(context, PrivacyPolicyScreen.routeName);
-                }),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                DrawerList(Icons.pending_actions_outlined, 'Send Feedback',
-                    _navigateToFeedback),
-                const Divider(
-                  color: Colors.white,
-                  indent: 75,
-                  endIndent: 30,
-                ),
-                Spacer(),
-                TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(foregroundColor: Colors.white),
-                  child: InkWell(
-                    onTap: () => logOut(context),
-                    child: Row(
-                      children: [
-                        const SizedBox(
-                          width: 30,
-                        ),
-                        Text(
-                          'Sign-Out  ',
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        Icon(Icons.arrow_forward),
-                      ],
-                    ),
+        child: ListTileTheme(
+          textColor: Colors.white,
+          iconColor: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              SizedBox(height: 80),
+              DrawerList(
+                Icons.home,
+                'Home',
+                _navigateToHome,
+              ),
+              const Divider(
+                color: Colors.white,
+                indent: 75,
+                endIndent: 30,
+              ),
+              DrawerList(Icons.account_circle_rounded, 'Profile', () {
+                Navigator.of(context).pushNamed(UserProfileScreen.routeName);
+              }),
+              const Divider(
+                color: Colors.white,
+                indent: 75,
+                endIndent: 30,
+              ),
+              DrawerList(Icons.shopping_cart_checkout_sharp, 'Orders',
+                  _navigateToOrders),
+              const Divider(
+                color: Colors.white,
+                indent: 75,
+                endIndent: 30,
+              ),
+              DrawerList(Icons.text_snippet_outlined, 'Privacy Policy', () {
+                Navigator.pushNamed(context, PrivacyPolicyScreen.routeName);
+              }),
+              const Divider(
+                color: Colors.white,
+                indent: 75,
+                endIndent: 30,
+              ),
+              DrawerList(Icons.pending_actions_outlined, 'Send Feedback',
+                  _navigateToFeedback),
+              const Divider(
+                color: Colors.white,
+                indent: 75,
+                endIndent: 30,
+              ),
+              Spacer(),
+              TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(foregroundColor: Colors.white),
+                child: InkWell(
+                  onTap: () => logOut(context),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Text(
+                        'Sign-Out  ',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      Icon(Icons.arrow_forward),
+                    ],
                   ),
                 ),
-                DefaultTextStyle(
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.white54,
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.symmetric(
-                      vertical: 16.0,
-                    ),
-                    child: Text('Terms of Service | Privacy Policy'),
-                  ),
+              ),
+              DefaultTextStyle(
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white54,
                 ),
-              ],
-            ),
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    vertical: 16.0,
+                  ),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, PrivacyPolicyScreen.routeName);
+                      },
+                      child: Text('Terms of Service | Privacy Policy')),
+                ),
+              ),
+            ],
           ),
         ),
       ),
