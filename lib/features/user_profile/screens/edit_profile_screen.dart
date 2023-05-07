@@ -11,9 +11,11 @@ class EditProfileScreen extends StatefulWidget {
 class _EditProfileScreenState extends State<EditProfileScreen> {
   final AccountServices accountServices = AccountServices();
   final _formKey = GlobalKey<FormState>();
+
   final _fnameController = TextEditingController();
   final _lnameController = TextEditingController();
   final _addressController = TextEditingController();
+
 
   bool _isLoading = false;
 

@@ -178,7 +178,7 @@ authRouter.get("/", auth, async (req, res) => {
   .create({
     body: `Your otp is ${otp} for the FOOD DeliVery`,
     // to: `+918528469069`,
-    to: `+919408698359`,
+    to: `+91${phone}`,
     from: `+447883305299`,
   })
   .then((message) => console.log(message))
@@ -258,6 +258,7 @@ authRouter.post("/api/reset-password" , auth ,async(req, res) => {
         token = jwt.sign({id: user._id,}, "passwordKey");
       res.json({token, ...user._doc});
                 
+
 
 
     } catch (e) {

@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -141,6 +142,7 @@ class AccountServices {
             showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY");
           });
     } catch (e) {
+
       showSnackBar(context, e.toString());
     }
   }
