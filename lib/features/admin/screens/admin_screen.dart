@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:project_s4/features/admin/screens/analytics_screen.dart';
 import 'package:project_s4/features/admin/screens/posts_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../constants/global_variables.dart';
+import '../../../constants/utils.dart';
+import '../../auth/screens/login_screen.dart';
 import 'orders_screen.dart';
 
 class AdminScreen extends StatefulWidget {
@@ -30,27 +33,43 @@ class _AdminScreenState extends State<AdminScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50),
-        child: AppBar(
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: GlobalVariables.appBarGradient,
-            ),
-          ),
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text(
-                'Admin',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+      appBar: AppBar(
+        title: Text(
+          'Admin panel',
+          style: TextStyle(
+              color: Color.fromARGB(182, 0, 0, 0),
+              fontWeight: FontWeight.w700,
+              fontSize: 22),
+        ),
+        actions: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(Colors.white10)),
+                onPressed: () => logOut(context),
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8.0, horizontal: 0),
+                  child: Text("SIGN-OUT ",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w900)),
                 ),
-              )
+              ),
+              IconButton(
+                  onPressed: () => logOut(context),
+                  icon: Icon(Icons.logout_rounded),
+                  color: Colors.orange),
             ],
           ),
-        ),
+        ],
+        toolbarHeight: 60,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       ),
       body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
@@ -79,7 +98,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 Icons.home_outlined,
               ),
             ),
-            label: '',
+            label: 'Home',
           ),
           // ORDER SUMMARY
           BottomNavigationBarItem(
@@ -99,7 +118,7 @@ class _AdminScreenState extends State<AdminScreen> {
                 Icons.analytics_outlined,
               ),
             ),
-            label: '',
+            label: 'Orders',
           ),
           //ANALYTICS
           BottomNavigationBarItem(
@@ -119,10 +138,24 @@ class _AdminScreenState extends State<AdminScreen> {
                 Icons.analytics_outlined,
               ),
             ),
-            label: '',
+            label: 'Chart',
           ),
         ],
       ),
     );
+  }
+}
+
+void logOut(BuildContext context) async {
+  try {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setString('x-auth-token', '');
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      LoginScreen.routeName,
+      (route) => false,
+    );
+  } catch (e) {
+    showSnackBar(context, e.toString());
   }
 }

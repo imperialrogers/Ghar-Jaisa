@@ -38,6 +38,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
                 crossAxisCount: 2),
             itemBuilder: (context, index) {
               final orderData = orders![index];
+              // final productData = products![index];
               return GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(
@@ -46,10 +47,25 @@ class _OrdersScreenState extends State<OrdersScreen> {
                     arguments: orderData,
                   );
                 },
-                child: SizedBox(
-                  height: 140,
-                  child: SingleProduct(
-                    image: orderData.products[0].images[0],
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Column(
+                    children: [
+                      SingleProduct(
+                        image: orderData.products[0].images[0],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        orderData.products[0].name,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                        ),
+                      )
+                    ],
                   ),
                 ),
               );
