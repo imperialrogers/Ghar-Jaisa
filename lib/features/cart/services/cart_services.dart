@@ -35,11 +35,11 @@ class CartServices {
           User user =
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
           userProvider.setUserFromModel(user);
-          showSnackBar(context, "Successfully deleted from cart");
+          showSnackBar(context, "Successfully deleted from cart", 1);
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -65,11 +65,11 @@ class CartServices {
           User user =
               userProvider.user.copyWith(cart: jsonDecode(res.body)['cart']);
           userProvider.setUserFromModel(user);
-          showSnackBar(context, "Successfully deleted from cart");
+          showSnackBar(context, "Successfully deleted from cart", 1);
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 1);
     }
   }
 
@@ -95,7 +95,7 @@ class CartServices {
         response: res,
         context: context,
         onSuccess: () async {
-          showSnackBar(context, "Your Order has been placed");
+          showSnackBar(context, "Your Order has been placed", 1);
           User user = userProvider.user.copyWith(
             cart: [],
           );
@@ -103,7 +103,7 @@ class CartServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 }

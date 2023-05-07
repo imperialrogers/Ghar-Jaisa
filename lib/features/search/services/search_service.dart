@@ -43,7 +43,7 @@ class SearchServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return productList;
   }
@@ -78,7 +78,7 @@ class SearchServices {
         },
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
     return productList;
   }

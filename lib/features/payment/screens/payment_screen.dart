@@ -46,7 +46,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     try {
       razorpay.open(options);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -64,18 +64,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
       );
       Navigator.pushNamed(context, BottomBar.routeName);
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
 
-    showSnackBar(context, "ORDER SUCCESSFUL");
+    showSnackBar(context, "ORDER SUCCESSFUL", 1);
   }
 
   void handlePaymentError(PaymentFailureResponse res) {
-    showSnackBar(context, "ORDER FAILURE");
+    showSnackBar(context, "ORDER FAILURE", 0);
   }
 
   void handleExternalWallet(ExternalWalletResponse res) {
-    showSnackBar(context, "EXTERNAL WALLET");
+    showSnackBar(context, "EXTERNAL WALLET", 0);
   }
 
   //****************************************************** */

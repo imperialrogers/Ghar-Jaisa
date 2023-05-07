@@ -58,7 +58,7 @@ class _PostScreenState extends State<PostScreen> {
         (route) => false,
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 

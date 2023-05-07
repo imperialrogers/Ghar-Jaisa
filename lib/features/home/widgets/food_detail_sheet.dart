@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import './food_title_widget.dart';
 
 class FoodDetailSheet extends StatefulWidget {
+  const FoodDetailSheet({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _FoodDetailSheetState createState() => _FoodDetailSheetState();
 }
 

@@ -34,7 +34,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         (route) => false,
       );
     } catch (e) {
-      showSnackBar(context, e.toString());
+      showSnackBar(context, e.toString(), 0);
     }
   }
 
@@ -160,25 +160,28 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   height: 40,
                 ),
                 SizedBox(
-                  height: 67,
+                  height: 80,
                   child: Card(
                     elevation: 1,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     margin:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: ListTile(
-                      leading: const Icon(Icons.person),
-                      title: const Text(
-                        'Edit Profile',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 7),
+                      child: ListTile(
+                        leading: const Icon(Icons.person),
+                        title: const Text(
+                          'Edit Profile',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(EditProfileScreen.routeName);
+                        },
                       ),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        Navigator.of(context)
-                            .pushNamed(EditProfileScreen.routeName);
-                      },
                     ),
                   ),
                 ),
@@ -186,28 +189,31 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   height: 5,
                 ),
                 SizedBox(
-                  height: 67,
+                  height: 80,
                   child: Card(
                     elevation: 1,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     margin:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: ListTile(
-                      leading: const Icon(Icons.security),
-                      title: const Text(
-                        'Change Password',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 7),
+                      child: ListTile(
+                        leading: const Icon(Icons.security),
+                        title: const Text(
+                          'Change Password',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            PasswordOtpPage.routeName,
+                            arguments: user.phone.toString(),
+                          );
+                        },
                       ),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          PasswordOtpPage.routeName,
-                          arguments: user.phone.toString(),
-                        );
-                      },
                     ),
                   ),
                 ),
@@ -215,25 +221,28 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   height: 5,
                 ),
                 SizedBox(
-                  height: 67,
+                  height: 80,
                   child: Card(
                     elevation: 1,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     margin:
                         const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    child: ListTile(
-                      leading: const Icon(Icons.logout),
-                      title: const Text(
-                        'Logout',
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.w400),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 7.0),
+                      child: ListTile(
+                        leading: const Icon(Icons.logout),
+                        title: const Text(
+                          'Logout',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.w400),
+                        ),
+                        trailing: const Icon(Icons.arrow_forward_ios),
+                        onTap: () {
+                          // Perform logout action
+                          logout(context);
+                        },
                       ),
-                      trailing: const Icon(Icons.arrow_forward_ios),
-                      onTap: () {
-                        // Perform logout action
-                        logout(context);
-                      },
                     ),
                   ),
                 ),
