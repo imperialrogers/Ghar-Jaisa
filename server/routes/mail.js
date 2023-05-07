@@ -229,9 +229,11 @@ const mailRouter = express.Router();
           from: '"Food Delivery Subsystem" <food-delivery-subsystem@hotmail.com>', // sender address
       to: "www.chintanchawda5445@gmail.com, 21bds013@iiitdwd.ac.in", // list of receivers
       subject: "Your MyApp Password Has Been Updated",
-      html: email,
+      html: mailBody,
       text: mailGenerator.generatePlaintext(email)
         };
+
+        console.log("HERE");
   
         await transporter.sendMail(message, function(error, info) {
           if (error) {
@@ -349,8 +351,8 @@ const mailRouter = express.Router();
           let message = {
             from: '"Food Delivery Subsystem" <food-delivery-subsystem@hotmail.com>', // sender address
         to: "www.chintanchawda5445@gmail.com, 21bds013@iiitdwd.ac.in", // list of receivers
-        subject: "Your MyApp Password Has Been Updated",
-        html: email,
+        subject: "Your FOOD DELIVERY APP Password Has Been Updated",
+        html: mailBody,
         text: mailGenerator.generatePlaintext(email)
           };
     
