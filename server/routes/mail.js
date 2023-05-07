@@ -139,5 +139,110 @@ const mailRouter = express.Router();
         res.json();
         
     });
+
+
+    //UPDATE PASSWORD MAIL
+
+    mailRouter.get("/mail/updated-password", async (req, res) => {
+      let config  = {
+          service : "Hotmail",
+          auth : {
+              user: 'food-delivery-subsystem@hotmail.com',
+              pass: 'guhnbpnhvqhnvtit'
+          }
+      }
+  
+      let transporter = nodemailer.createTransport(config);
+      let mailGenerator = new Mailgen({
+          theme: {
+              palette: {
+                primary: "#FF595E",
+                secondary: "#FFCA3A",
+                tertiary: "#222222",
+                quaternary: "#F5F5F5"
+              },
+              typography: {
+                fontFamily: "Montserrat, sans-serif",
+                fontSize: "16px",
+                fontWeight: "bold"
+              }
+            },
+          product: {
+            name: "Food Delivery App",
+            link: "https://www.ourwebsite.com/",
+      logo: "https://previews.123rf.com/images/butenkov/butenkov2004/butenkov200400033/143760140-vector-logo-of-food-delivery.jpg"
+          }
+        });
+  
+        const email = {
+          body: {
+            name: "John",
+            intro: "Your password has been successfully updated!",
+            table: {
+              data: [
+                {
+                  icon: "🔑",
+                  title: "Password Updated",
+                  description: "Your password has been updated successfully."
+                },
+                {
+                  icon: "📧",
+                  title: "Account Security",
+                  description: "For security reasons, we recommend changing your password frequently."
+                },
+              ],
+              columns: {
+                // Optionally, customize the column widths
+                customWidth: {
+                  icon: "10%",
+                  title: "30%",
+                  description: "60%"
+                },
+                // Optionally, customize the table colors
+                colors: {
+                  headerBg: "#e53935",
+                  headerColor: "#ffffff",
+                  border: "#cccccc"
+                }
+              }
+            },
+            action: {
+              instructions: "If you did not change your password, please contact us immediately.",
+              button: {
+                color: "#e53935",
+                text: "Contact Us",
+                link: "https://myapp.com/contact"
+              }
+            },
+            text: "If you have any questions or concerns about your account, please don't hesitate to contact us.\n\nBest regards,\nThe MyApp Team",
+            signature: "The MyApp Team",
+            unsubscribe: {
+              text: "To unsubscribe from these emails, please click here:",
+              link: "https://myapp.com/unsubscribe"
+            }
+          }
+        };      
+        
+        
+        let mailBody = mailGenerator.generate(email);
+        let message = {
+          from: '"Food Delivery Subsystem" <food-delivery-subsystem@hotmail.com>', // sender address
+      to: "www.chintanchawda5445@gmail.com, 21bds013@iiitdwd.ac.in", // list of receivers
+      subject: "Your MyApp Password Has Been Updated",
+      html: email,
+      text: mailGenerator.generatePlaintext(email)
+        };
+  
+        await transporter.sendMail(message, function(error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log("Email sent: " + info.response);
+          }
+        });
+  
+          res.json();
+          
+      });
     
 module.exports = mailRouter

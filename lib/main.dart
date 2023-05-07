@@ -9,6 +9,7 @@ import 'package:project_s4/features/auth/screens/login_screen.dart';
 import 'package:project_s4/features/auth/services/auth_service.dart';
 import 'package:project_s4/features/feedback/screens/feedback_screen.dart';
 import 'package:project_s4/features/home/screens/home_screen.dart';
+import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:project_s4/providers/user_provider.dart';
 import 'package:project_s4/screens/fill_bio.dart';
 import 'package:provider/provider.dart';
@@ -59,6 +60,9 @@ class _MyAppState extends State<MyApp> {
               ? AppDrawer(BottomBar())
               : AdminScreen())
           : LoginScreen(),
+      // home: PaymentScreen(
+      //   totalAmount: '100',
+      // ),
     );
   }
 }

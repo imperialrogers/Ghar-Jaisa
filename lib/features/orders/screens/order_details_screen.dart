@@ -1,9 +1,38 @@
 import 'package:flutter/material.dart';
 
-class OrderDetailsScreen extends StatelessWidget {
-  final String orderNumber;
+import '../../../models/orders.dart';
+import '../../account/services/account_services.dart';
 
-  OrderDetailsScreen({required this.orderNumber});
+class OrderDetailsScreen extends StatefulWidget {
+  final Order order;
+
+  const OrderDetailsScreen({super.key, required this.order});
+
+  @override
+  State<OrderDetailsScreen> createState() => _OrderDetailsScreenState();
+}
+
+class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
+  List<Order>? orderss;
+  final AccountServices accountServices = AccountServices();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchOrders();
+  }
+
+  void fetchOrders() async {
+    orderss = await accountServices.fetchMyOrders(context: context);
+    setState(() {});
+  }
+
+  void getOrderDetails() {
+    for (int i = 0; i < orderss!.length; i++) {}
+  }
+
+  List<String>? orderName;
+  List<String>? orderQ;
 
   @override
   Widget build(BuildContext context) {
@@ -44,41 +73,76 @@ class OrderDetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  width: 20,
+                ),
+                Image.asset(
+                  height: 25,
+                  width: 25,
+                  'assets/images/veg.png',
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  widget.order.id,
+                  style: const TextStyle(
+                      fontSize: 18, fontWeight: FontWeight.w500),
+                )
+              ],
+            ),
+            //
+            //
+            for (int i = 0; i < widget.order.products.length; i++)
+              Row(
+                children: [
+                  Image.network(
+                    widget.order.products[i].images[0],
+                    height: 120,
+                    width: 120,
+                  ),
+                  const SizedBox(width: 5),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.order.products[i].name,
+                          style: const TextStyle(
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          'Qty: ${widget.order.quantity[i]}',
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            //
+            //
+
             Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Image.asset(
-                      height: 25,
-                      width: 25,
-                      'assets/images/veg.png',
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      orderNumber,
-                      style: const TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
-                const Align(
-                  widthFactor: 4.5,
-                  heightFactor: 2,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Quantity: Half',
-                    style: TextStyle(fontSize: 13, color: Colors.black54),
-                  ),
-                ),
-                Row(
+                // const Align(
+                //   widthFactor: 4.5,
+                //   heightFactor: 2,
+                //   alignment: Alignment.centerLeft,
+                //   child: Text(
+                //     'Quantity: Half',
+                //     style: TextStyle(fontSize: 13, color: Colors.black54),
+                //   ),
+                // ),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 5),
                       child: Text(
@@ -104,9 +168,9 @@ class OrderDetailsScreen extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -129,9 +193,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -154,9 +218,9 @@ class OrderDetailsScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
@@ -184,8 +248,8 @@ class OrderDetailsScreen extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    Padding(
+                  children: [
+                    const Padding(
                       padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
                       child: Text(
                         'Grand Total',
@@ -196,10 +260,11 @@ class OrderDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
+                      padding:
+                          const EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
                       child: Text(
-                        '₹125.0',
-                        style: TextStyle(
+                        "₹${widget.order.totalPrice}",
+                        style: const TextStyle(
                             fontSize: 18,
                             color: Colors.black,
                             fontWeight: FontWeight.w600),
