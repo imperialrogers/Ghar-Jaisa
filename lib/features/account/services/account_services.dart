@@ -85,7 +85,7 @@ class AccountServices {
             //send mail
 
             try {
-              await http.get(Uri.parse('$uri/mail/welcome'),
+              await http.get(Uri.parse('$uri/mail/updated-password'),
                   headers: <String, String>{
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
@@ -132,7 +132,7 @@ class AccountServices {
           context: context,
           onSuccess: () async {
             try {
-              await http.get(Uri.parse('$uri/mail/welcome'),
+              await http.get(Uri.parse('$uri/mail/updated-crendentials'),
                   headers: <String, String>{
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
