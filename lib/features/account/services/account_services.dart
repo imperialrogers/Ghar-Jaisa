@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -85,7 +84,7 @@ class AccountServices {
             //send mail
 
             try {
-              await http.get(Uri.parse('$uri/mail/welcome'),
+              await http.get(Uri.parse('$uri/mail/updated-password'),
                   headers: <String, String>{
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
@@ -132,17 +131,16 @@ class AccountServices {
           context: context,
           onSuccess: () async {
             try {
-              await http.get(Uri.parse('$uri/mail/welcome'),
+              await http.get(Uri.parse('$uri/mail/updated-credentials'),
                   headers: <String, String>{
                     'Content-Type': 'application/json; chatset=UTF-8',
                   });
+              showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY");
             } catch (e) {
               showSnackBar(context, e.toString());
             }
-            showSnackBar(context, "PROFILE UPDATED SUCCESSFULLY");
           });
     } catch (e) {
-
       showSnackBar(context, e.toString());
     }
   }

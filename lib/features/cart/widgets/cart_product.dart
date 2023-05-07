@@ -126,10 +126,11 @@ class _CartProductState extends State<CartProduct> {
                 Column(
                   children: [
                     Container(
-                      width: 235,
+                      width: 150,
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Text(
                         product.name,
+                        textAlign: TextAlign.start,
                         style: const TextStyle(
                           fontSize: 16,
                         ),
@@ -137,10 +138,10 @@ class _CartProductState extends State<CartProduct> {
                       ),
                     ),
                     Container(
-                      width: 235,
+                      width: 150,
                       padding: const EdgeInsets.only(left: 10, top: 5),
                       child: Text(
-                        '\$${product.price}',
+                        '₹${product.price}',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
