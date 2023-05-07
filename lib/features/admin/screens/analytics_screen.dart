@@ -42,13 +42,15 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
+                const SizedBox(
+                  height: 30,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    // ignore: prefer_const_constructors
-                    Text(
-                      'Total Selling:',
-                      style: const TextStyle(
+                    const Text(
+                      'Total sale:',
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
@@ -57,13 +59,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                       '₹$totalSales',
                       style: const TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                       ),
                     ),
                   ],
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 SizedBox(
                   height: 500,
@@ -71,7 +73,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                     charts.Series(
                       id: 'Sales',
                       data: earnings!,
-                      colorFn: (_, __) => charts.Color.fromHex(code: '#F1C300'),
+                      colorFn: (_, __) => charts.Color.fromHex(code: '#FFA500'),
                       domainFn: (Sales sales, _) => sales.label,
                       measureFn: (Sales sales, _) => sales.earning,
                     ),

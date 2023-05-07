@@ -4,10 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:project_s4/constants/global_variables.dart';
-
-import '../../../common/widgets/custom_button.dart';
-import '../../../common/widgets/custom_textfield.dart';
-// import '../../../constants/global_variables.dart';
 import '../../../constants/utils.dart';
 import '../services/admin_services.dart';
 
@@ -71,7 +67,33 @@ class _AddProductScreenState extends State<AddProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Text(
+            'Add Products here',
+            style: TextStyle(
+                color: Color.fromARGB(200, 50, 53, 51),
+                fontWeight: FontWeight.w600,
+                fontSize: 19),
+          ),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+      ),
       body: SingleChildScrollView(
         child: Form(
           key: _addProductFormKey,
@@ -100,77 +122,127 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       )
                     : GestureDetector(
                         onTap: selectImages,
-                        child: DottedBorder(
-                          borderType: BorderType.RRect,
-                          radius: const Radius.circular(10),
-                          dashPattern: const [10, 4],
-                          strokeCap: StrokeCap.round,
-                          child: Container(
-                            width: double.infinity,
-                            height: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const Icon(
-                                  Icons.folder_open,
-                                  size: 40,
-                                ),
-                                const SizedBox(height: 15),
-                                Text(
-                                  'Select Product Images',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.grey.shade400,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: DottedBorder(
+                            borderType: BorderType.RRect,
+                            radius: const Radius.circular(30),
+                            dashPattern: const [10, 5],
+                            strokeCap: StrokeCap.round,
+                            child: Container(
+                              width: double.infinity,
+                              height: 150,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.folder_open,
+                                    size: 45,
                                   ),
-                                ),
-                              ],
+                                  const SizedBox(height: 15),
+                                  Text(
+                                    'Select Product Images',
+                                    style: TextStyle(
+                                      fontSize: 17,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                 const SizedBox(height: 30),
-                CustomTextField(
+                TextField(
                   controller: productNameController,
-                  hintText: 'Product Name',
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                      ),
+                      filled: true,
+                      hintStyle: TextStyle(color: Colors.grey.shade800),
+                      hintText: "Product name",
+                      fillColor: Colors.white),
                 ),
                 const SizedBox(height: 10),
-                CustomTextField(
-                  controller: descriptionController,
-                  hintText: 'Description',
+                TextField(
                   maxLines: 7,
+                  minLines: 5,
+                  controller: descriptionController,
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                      ),
+                      filled: true,
+                      hintStyle: TextStyle(color: Colors.grey.shade800),
+                      hintText: "Description",
+                      fillColor: Colors.white),
                 ),
                 const SizedBox(height: 10),
-                CustomTextField(
+                TextField(
                   controller: priceController,
-                  hintText: 'Price',
+                  decoration: InputDecoration(
+                      border: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(20.0),
+                        ),
+                      ),
+                      filled: true,
+                      hintStyle: TextStyle(color: Colors.grey.shade800),
+                      hintText: "Price",
+                      fillColor: Colors.white),
                 ),
-                const SizedBox(height: 10),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  child: DropdownButton(
-                    value: category,
-                    icon: const Icon(Icons.keyboard_arrow_down),
-                    items: GlobalVariables.categoriesList.map((String item) {
-                      return DropdownMenuItem(
-                        value: item,
-                        child: Text(item),
-                      );
-                    }).toList(),
-                    onChanged: (String? newVal) {
-                      setState(() {
-                        category = newVal!;
-                      });
-                    },
+                const SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: DropdownButton(
+                      dropdownColor: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      value: category,
+                      icon: const Icon(Icons.keyboard_arrow_down,
+                          color: Colors.orange, size: 30),
+                      items: GlobalVariables.categoriesList.map((String item) {
+                        return DropdownMenuItem(
+                          value: item,
+                          child: Text(item,
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400)),
+                        );
+                      }).toList(),
+                      onChanged: (String? newVal) {
+                        setState(() {
+                          category = newVal!;
+                        });
+                      },
+                    ),
                   ),
                 ),
-                const SizedBox(height: 10),
-                CustomButton(
-                  text: 'Sell',
-                  onTap: sellProduct,
+                Container(
+                  width: double.infinity,
+                  height: 90,
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 130.0, vertical: 20),
+                  child: ElevatedButton(
+                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                      style: ElevatedButton.styleFrom(
+                          shape: StadiumBorder(),
+                          elevation: 1,
+                          backgroundColor: Colors.orange),
+                      onPressed: sellProduct,
+                      child: const Text(
+                        'Sell',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      )),
                 ),
               ],
             ),
