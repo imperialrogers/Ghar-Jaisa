@@ -1,8 +1,9 @@
-// ignore_for_file: unused_local_variable, avoid_print
+// ignore_for_file: unused_local_variable, avoid_print, unnecessary_brace_in_string_interps
 
 import 'package:flutter/material.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
 import 'package:project_s4/features/cart/widgets/cart_product.dart';
+import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:project_s4/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,8 @@ class _CartsScreenState extends State<CartsScreen> {
     final CartServices cartServices = CartServices();
 
     //Calculating Logic
-    final user = context.watch<UserProvider>().user;
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    final user = userProvider.user;
     int sum = 0;
     user.cart
         .map((e) => sum += e['quantity'] * e['product']['price'] as int)
@@ -167,9 +169,11 @@ class _CartsScreenState extends State<CartsScreen> {
                     ElevatedButton(
                       onPressed: () {
                         // TODO: Implement checkout logic
+                        Navigator.pushNamed(context, PaymentScreen.routeName,
+                            arguments: (totalSum * 100).toString());
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.white,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),

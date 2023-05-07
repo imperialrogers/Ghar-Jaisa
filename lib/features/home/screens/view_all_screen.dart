@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_s4/common/widgets/loader.dart';
 import 'package:project_s4/features/search/services/search_service.dart';
 
 import '../../../models/product.dart';

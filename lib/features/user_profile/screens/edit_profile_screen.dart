@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s4/features/account/services/account_services.dart';
 import '../widgets/bottom_sheet.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -8,12 +9,24 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
+  final AccountServices accountServices = AccountServices();
   final _formKey = GlobalKey<FormState>();
-  final _nameController = TextEditingController();
-  final _emailController = TextEditingController();
-  final _phoneController = TextEditingController();
-  final _bioController = TextEditingController();
+
+  final _fnameController = TextEditingController();
+  final _lnameController = TextEditingController();
+  final _addressController = TextEditingController();
+
+
   bool _isLoading = false;
+
+  void updateCredentials(
+    BuildContext context,
+    String fname,
+    String lname,
+    String address,
+  ) async {
+    accountServices.updateCredentials(context, fname, lname, address);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +47,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
         title: const Text(
           'Edit Profile',
           style: TextStyle(
@@ -96,56 +109,55 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                       const SizedBox(height: 32.0),
                       Text(
-                        'Name',
+                        'First Name',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _nameController,
+                        controller: _fnameController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your name';
+                            return 'Please enter your First Name';
                           }
                           return null;
                         },
                         decoration: const InputDecoration(
-                          hintText: 'Enter your name',
-                          
+                          hintText: 'Enter your First Name',
                         ),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
-                        'Email',
+                        'Last Name',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _emailController,
+                        controller: _lnameController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your email';
+                            return 'Please enter your Last Name';
                           }
                           return null;
                         },
-                        keyboardType: TextInputType.emailAddress,
+                        keyboardType: TextInputType.name,
                         decoration: const InputDecoration(
-                          hintText: 'Enter your email',
+                          hintText: 'Enter your Last Name',
                         ),
                       ),
                       const SizedBox(height: 16.0),
                       Text(
-                        'Phone',
+                        'Address',
                         style: theme.textTheme.titleLarge,
                       ),
                       TextFormField(
-                        controller: _phoneController,
+                        controller: _addressController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please enter your phone number';
+                            return 'Please enter your Address';
                           }
                           return null;
                         },
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.streetAddress,
                         decoration: const InputDecoration(
-                          hintText: 'Enter your phone number',
+                          hintText: 'Enter your Address',
                         ),
                       ),
                       const SizedBox(height: 50.0),
@@ -158,6 +170,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 if (_formKey.currentState!.validate()) {
+                                  updateCredentials(
+                                      context,
+                                      _fnameController.text,
+                                      _lnameController.text,
+                                      _addressController.text);
                                   // Implement update functionality
                                   setState(() {
                                     _isLoading = true;
@@ -168,11 +185,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     setState(() {
                                       _isLoading = false;
                                     });
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Profile updated'),
-                                      ),
-                                    );
                                   });
                                 }
                               },

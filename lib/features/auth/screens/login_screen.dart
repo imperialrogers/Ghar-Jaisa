@@ -46,10 +46,10 @@ class _LoginScreenState extends State<LoginScreen> {
         scopes: ['email', 'profile', 'openid'],
       );
       var data = await _googleSignIn.signIn();
-      print(data);
+      // print(data);
       var x =
           await authService.userExists(context: context, email: data!.email);
-      print(x);
+      // print(x);
       if (x == 201) {
         authService.signUpUser(
           context: context,
@@ -186,12 +186,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Text("Don't have and account ?"),
                   TextButton(
-                      onPressed: () {
-                        GoogleSignIn().signOut();
-                        Navigator.pushReplacementNamed(
-                            context, SignUpScreen.routeName);
-                      },
-                      child: const Text("Sign Up")),
+                    onPressed: () {
+                      GoogleSignIn().signOut();
+                      Navigator.pushReplacementNamed(
+                          context, SignUpScreen.routeName);
+                    },
+                    child: const Text("Sign Up"),
+                  ),
                 ],
               ),
               // ElevatedButton(

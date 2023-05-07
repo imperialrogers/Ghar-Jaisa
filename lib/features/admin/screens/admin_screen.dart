@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:project_s4/features/admin/screens/analytics_screen.dart';
 import 'package:project_s4/features/admin/screens/posts_screen.dart';
 
 import '../../../constants/global_variables.dart';
+import 'orders_screen.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
@@ -17,15 +19,7 @@ class _AdminScreenState extends State<AdminScreen> {
   double bottomBarWidth = 42;
   double bottomBarBorderWidth = 5;
 
-  List<Widget> pages = [
-    PostScreen(),
-    Center(
-      child: Text('Orders Summary'),
-    ),
-    Center(
-      child: Text('Analytics'),
-    ),
-  ];
+  List<Widget> pages = [PostScreen(), OrdersScreen(), AnalyticsScreen()];
 
   void updatePage(int page) {
     setState(() {
@@ -95,6 +89,26 @@ class _AdminScreenState extends State<AdminScreen> {
                 border: Border(
                   top: BorderSide(
                     color: _page == 1
+                        ? GlobalVariables.selectedNavBarColor
+                        : GlobalVariables.backgroundColor,
+                    width: bottomBarBorderWidth,
+                  ),
+                ),
+              ),
+              child: const Icon(
+                Icons.analytics_outlined,
+              ),
+            ),
+            label: '',
+          ),
+          //ANALYTICS
+          BottomNavigationBarItem(
+            icon: Container(
+              width: bottomBarWidth,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: _page == 2
                         ? GlobalVariables.selectedNavBarColor
                         : GlobalVariables.backgroundColor,
                     width: bottomBarBorderWidth,
