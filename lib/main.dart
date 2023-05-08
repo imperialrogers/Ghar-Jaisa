@@ -60,9 +60,6 @@ class _MyAppState extends State<MyApp> {
               ? AppDrawer(BottomBar())
               : AdminScreen())
           : LoginScreen(),
-      // home: PaymentScreen(
-      //   totalAmount: '100',
-      // ),
     );
   }
 }

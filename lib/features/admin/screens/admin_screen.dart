@@ -150,12 +150,13 @@ void logOut(BuildContext context) async {
   try {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setString('x-auth-token', '');
+    // ignore: use_build_context_synchronously
     Navigator.pushNamedAndRemoveUntil(
       context,
       LoginScreen.routeName,
       (route) => false,
     );
   } catch (e) {
-    showSnackBar(context, e.toString());
+    showSnackBar(context, e.toString(), 0);
   }
 }

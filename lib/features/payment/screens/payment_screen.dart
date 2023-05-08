@@ -104,8 +104,31 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // ignore: prefer_const_constructors
-        title: Text("Payment Screen"),
+        leading: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            icon: const Icon(
+              Icons.arrow_back_ios_new,
+              color: Colors.orange,
+              size: 30,
+            ),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        title: const Padding(
+          padding: EdgeInsets.only(top: 12),
+          child: Text(
+            'Payment',
+            style: TextStyle(
+                color: Color.fromARGB(200, 50, 53, 51),
+                fontWeight: FontWeight.w600,
+                fontSize: 19),
+          ),
+        ),
+        toolbarHeight: 55,
+        automaticallyImplyLeading: true,
+        elevation: 0,
+        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
       ),
       body: Center(
         child: Column(
@@ -113,7 +136,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Handle Razorpay button pressed
@@ -136,21 +159,24 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ),
                 icon: Image.asset(
-                  "assets/images/razorpay.png",
-                  height: 30.0,
-                  width: 30.0,
+                  "assets/images/razorpay.jpeg",
+                  height: 69.0,
+                  width: 120.0,
                 ),
-                label: const Text(
-                  "Pay with Razorpay",
-                  style: TextStyle(
-                    color: Colors.black,
+                label: Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: const Text(
+                    "Pay with Razorpay",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),
             ),
             const SizedBox(height: 16.0),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: ElevatedButton.icon(
                 onPressed: () {
                   // Handle Paytm button pressed
@@ -166,40 +192,17 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ),
                 icon: Image.asset(
-                  "assets/images/paytm.png",
-                  height: 30.0,
-                  width: 30.0,
+                  "assets/images/paytm.jpeg",
+                  height: 65.0,
+                  width: 80.0,
                 ),
-                label: const Text(
-                  "Pay with Paytm",
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 16.0),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  // Handle Google Pay button pressed
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(
-                    Colors.white,
-                  ),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(50.0),
+                label: Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: const Text(
+                    "Pay with Paytm",
+                    style: TextStyle(
+                      color: Colors.black,
                     ),
-                  ),
-                ),
-                icon: const Icon(Icons.payment, color: Colors.blue),
-                label: const Text(
-                  "Pay with Google Pay",
-                  style: TextStyle(
-                    color: Colors.black,
                   ),
                 ),
               ),

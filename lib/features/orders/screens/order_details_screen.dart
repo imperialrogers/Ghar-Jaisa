@@ -120,6 +120,11 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         ),
                         Text(
                           'Qty: ${widget.order.quantity[i]}',
+                          style: TextStyle(fontWeight: FontWeight.w900),
+                        ),
+                        Text(
+                          "${widget.order.products[i].price} X ${widget.order.quantity[i]} = ${widget.order.products[i].price * widget.order.quantity[i]}",
+                          style: TextStyle(fontWeight: FontWeight.w900),
                         ),
                       ],
                     ),
@@ -140,60 +145,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 //     style: TextStyle(fontSize: 13, color: Colors.black54),
                 //   ),
                 // ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 5),
-                      child: Text(
-                        '1 x ₹120',
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20, top: 5.0, bottom: 5),
-                      child: Text(
-                        '₹120',
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
-                      ),
-                    ),
-                  ],
-                ),
+
                 const SizedBox(
                   height: 30,
                 ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20, top: 5.0, bottom: 2),
-                      child: Text(
-                        'Item total',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
-                      child: Text(
-                        '₹120',
-                        style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    )
-                  ],
-                ),
-                const Row(
+
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(
@@ -209,7 +166,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     Padding(
                       padding: EdgeInsets.only(right: 20, top: 5.0, bottom: 2),
                       child: Text(
-                        '₹5',
+                        'GST pre-included',
                         style: TextStyle(
                             fontSize: 14,
                             color: Colors.black,
@@ -218,7 +175,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                     )
                   ],
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Padding(

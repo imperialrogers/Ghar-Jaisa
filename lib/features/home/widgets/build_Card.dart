@@ -35,7 +35,7 @@ class _buildCardState extends State<buildCard> {
     return (products == null)
         ? const Loader()
         : SizedBox(
-            height: 285,
+            height: 300,
             width: double.infinity,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
@@ -52,9 +52,12 @@ class _buildCardState extends State<buildCard> {
                   children: [
                     GestureDetector(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(25)),
                         child: Image.network(
                           products![index].images[0],
+                          width: 250,
+                          height: 200,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -90,10 +93,10 @@ class _buildCardState extends State<buildCard> {
                       ),
                     ),
                     Text(
-                      products![index].price.toString(),
+                      '₹${products![index].price.toString()}',
                       style: const TextStyle(
                         fontSize: 18,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w900,
                       ),
                     )
                   ],

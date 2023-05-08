@@ -5,6 +5,7 @@ import 'package:project_s4/constants/utils.dart';
 import 'package:project_s4/features/cart/services/cart_services.dart';
 import 'package:project_s4/features/cart/widgets/cart_product.dart';
 import 'package:project_s4/features/payment/screens/payment_screen.dart';
+import 'package:project_s4/maps/googleMap.dart';
 import 'package:project_s4/providers/user_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -157,7 +158,7 @@ class _CartsScreenState extends State<CartsScreen> {
                           ),
                         ),
                         Text(
-                          '₹${totalSum}', // replace with actual total
+                          '₹ ${totalSum}', // replace with actual total
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -169,15 +170,8 @@ class _CartsScreenState extends State<CartsScreen> {
                     const SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () {
-                        if (totalSum <= 1) {
-                          Navigator.pushNamed(context, PaymentScreen.routeName,
-                              arguments: (totalSum * 100).toString());
-                        } else {
-                          showSnackBar(
-                              context,
-                              "Please Add Items To The Cart To Proceed To The Next Checkout Screen",
-                              0);
-                        }
+                        Navigator.pushNamed(context, GoogleMaps.routeName,
+                            arguments: (totalSum * 100).toString());
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
