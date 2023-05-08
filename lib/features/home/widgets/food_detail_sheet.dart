@@ -42,10 +42,11 @@ class _FoodDetailSheetState extends State<FoodDetailSheet> {
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
+            child: Image.network(
               widget.product.images[0],
               fit: BoxFit.cover,
-              height: 260,
+              width: 300,
+              height: 300,
             ),
           ),
           Padding(

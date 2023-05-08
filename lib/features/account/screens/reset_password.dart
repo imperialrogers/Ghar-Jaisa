@@ -6,7 +6,7 @@ import 'package:project_s4/features/account/services/account_services.dart';
 class ResetPasswordScreen extends StatefulWidget {
   static const routeName = '/reset-password';
 
-  const ResetPasswordScreen({super.key});
+  ResetPasswordScreen({super.key});
   @override
   _ResetPasswordScreenState createState() => _ResetPasswordScreenState();
 }
@@ -38,9 +38,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: IconButton(
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_ios_new,
               color: Colors.orange,
               size: 30,
@@ -48,7 +48,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
-        title: const Padding(
+        title: Padding(
           padding: EdgeInsets.only(top: 12),
           child: Text(
             '',
@@ -61,18 +61,18 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         toolbarHeight: 55,
         automaticallyImplyLeading: true,
         elevation: 0,
-        backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+        backgroundColor: Color.fromARGB(0, 255, 255, 255),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: EdgeInsets.all(16.0),
           child: Form(
             key: _formKey,
             child: Column(
               //crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const SizedBox(height: 5.0),
-                const Text(
+                SizedBox(height: 5.0),
+                Text(
                   'RESET YOUR PASSWORD',
                   style: TextStyle(
                     color: Color.fromARGB(197, 67, 60, 60),
@@ -80,9 +80,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     fontSize: 23,
                   ),
                 ),
-                const SizedBox(height: 50.0),
+                SizedBox(height: 50.0),
                 Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 20.0,
                     vertical: 15,
                   ),
@@ -96,8 +96,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     decoration: InputDecoration(
                       hintText: 'Old Password',
                       border: InputBorder.none,
-                      hintStyle: const TextStyle(color: Colors.grey),
-                      icon: const Icon(Icons.lock, color: Colors.orange),
+                      hintStyle: TextStyle(color: Colors.grey),
+                      icon: Icon(Icons.lock, color: Colors.orange),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _showOldPassword
@@ -112,7 +112,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         },
                       ),
                     ),
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                     cursorColor: Colors.grey,
                     onChanged: (value) {
                       setState(() {
@@ -121,9 +121,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     },
                   ),
                 ),
-                const SizedBox(height: 30.0),
+                SizedBox(height: 30.0),
                 Container(
-                  padding: const EdgeInsets.symmetric(
+                  padding: EdgeInsets.symmetric(
                     horizontal: 20.0,
                     vertical: 15,
                   ),
@@ -137,8 +137,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     decoration: InputDecoration(
                       hintText: 'New Password',
                       border: InputBorder.none,
-                      icon: const Icon(Icons.lock, color: Colors.orange),
-                      hintStyle: const TextStyle(color: Colors.grey),
+                      icon: Icon(Icons.lock, color: Colors.orange),
+                      hintStyle: TextStyle(color: Colors.grey),
                       suffixIcon: IconButton(
                         icon: Icon(
                           _showNewPassword
@@ -153,7 +153,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         },
                       ),
                     ),
-                    style: const TextStyle(color: Colors.black),
+                    style: TextStyle(color: Colors.black),
                     cursorColor: Colors.grey,
                     onChanged: (value) {
                       setState(() {
@@ -162,10 +162,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     },
                   ),
                 ),
-                const SizedBox(height: 30.0),
+                SizedBox(height: 30.0),
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                   decoration: BoxDecoration(
                     color: Colors.white.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(10),
@@ -175,7 +174,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     obscureText: !_showConfirmPassword,
                     decoration: InputDecoration(
                       hintText: "Confirm Password",
-                      icon: const Icon(Icons.lock, color: Colors.orange),
+                      icon: Icon(Icons.lock, color: Colors.orange),
                       border: InputBorder.none,
                       suffixIcon: IconButton(
                         icon: Icon(
@@ -193,12 +192,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 200.0),
+                SizedBox(height: 200.0),
                 // ElevatedButton(
-                //   child: const Text('Reset Password'),
+                //   child:  Text('Reset Password'),
                 //   style: ElevatedButton.styleFrom(
                 //     backgroundColor:
-                //         const Color(0xFFfd841f), // Background color
+                //          Color(0xFFfd841f), // Background color
                 //   ),
                 //   onPressed: () {
                 //     if (_formKey.currentState!.validate()) {
@@ -216,13 +215,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.orange,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 17),
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     "RESET PASSWORD",
                     style: TextStyle(
                       fontSize: 20,

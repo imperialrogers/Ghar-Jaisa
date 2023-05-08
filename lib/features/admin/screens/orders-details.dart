@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/widgets/custom_button.dart';
-import '../../../constants/global_variables.dart';
 import '../../../models/orders.dart';
 import '../../../providers/user_provider.dart';
 import '../../search/screens/search_screen.dart';
@@ -87,10 +86,9 @@ class _OrdersDScreenState extends State<OrdersDScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                child: Text(
                   'View order details',
                   style: TextStyle(
                     fontSize: 22,
@@ -119,13 +117,12 @@ class _OrdersDScreenState extends State<OrdersDScreen> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 15),
+                child: Text(
                   'Purchase Details',
                   style: TextStyle(
                     fontSize: 22,
@@ -180,10 +177,9 @@ class _OrdersDScreenState extends State<OrdersDScreen> {
                 ),
               ),
               const SizedBox(height: 20),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0),
-                child: const Text(
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 0),
+                child: Text(
                   'Tracking',
                   style: TextStyle(
                     fontSize: 22,

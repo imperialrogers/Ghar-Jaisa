@@ -52,6 +52,7 @@ class _PostScreenState extends State<PostScreen> {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       await sharedPreferences.setString('x-auth-token', '');
+      // ignore: use_build_context_synchronously
       Navigator.pushNamedAndRemoveUntil(
         context,
         LoginScreen.routeName,

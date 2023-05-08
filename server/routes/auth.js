@@ -67,8 +67,8 @@ authRouter.post('/api/signup', async (req, res)=>{
 
     //Creating a new user
     let user = new User({
-        email, 
-        password: hashedPassword, 
+        email,
+        password: hashedPassword,
         name
     });
 
@@ -81,7 +81,7 @@ authRouter.post('/api/signup', async (req, res)=>{
         res.status(500).json({error:e.message});
     }
 
-    
+
 
 
 
@@ -93,7 +93,7 @@ authRouter.post('/api/signin', async (req, res)=>{
     try {
     //****************get data from user in req.body*****************
     const {email, password}=req.body;
-    
+
     //VALIDATION:Checking if the user exists
     const user = await User.findOne({email});
     if (!user) {
@@ -111,7 +111,7 @@ authRouter.post('/api/signin', async (req, res)=>{
       //***************Storing the user token*****************
       const token = jwt.sign({id: user._id,}, "passwordKey");
       res.json({token, ...user._doc});
-  
+
 
     } catch (e) {
         res.status(500).json({error:e.message});
@@ -129,12 +129,12 @@ authRouter.post("/tokenIsValid", async (req, res) => {
 
       //VALIDATION: token is incorrect
       if (!verified) return res.json(false);
-  
+
       const user = await User.findById(verified.id);
 
       //VALIDATION: if user is valid or not
       if (!user) return res.json(false);
-      
+
       //Success case
       res.json(true);
     } catch (e) {
@@ -151,7 +151,7 @@ authRouter.get("/", auth, async (req, res) => {
   });
 
 
-  //__________________________________OTP VERIFICATION_________________________________  
+  //__________________________________OTP VERIFICATION_________________________________
 
   //OTP GENERATION
   authRouter.post("/api/otpLogin", async (req, res)=>{
@@ -162,7 +162,7 @@ authRouter.get("/", auth, async (req, res) => {
             lowerCaseAlphabets: false,
             specialChars: false,
             upperCaseAlphabets: false,
-            
+
         });
         const ttl = 5*60*1000;
         const expires = Date.now()+ttl;
@@ -170,7 +170,7 @@ authRouter.get("/", auth, async (req, res) => {
         const hash= crypto.createHmac("sha256", key).update(data).digest("hex");
         const fullHash = `${hash}.${expires}`;
 
-        
+
         //****************SEND MSG TO USER****************************
 
 
@@ -178,7 +178,7 @@ authRouter.get("/", auth, async (req, res) => {
   .create({
     body: `Your otp is ${otp} for the FOOD DeliVery`,
     // to: `+918528469069`,
-    to: `+91${phone}`,
+    to: `+919408698359`,
     from: `+447883305299`,
   })
   .then((message) => console.log(message))
@@ -186,12 +186,12 @@ authRouter.get("/", auth, async (req, res) => {
     // You can implement your fallback code here
     console.log(error);
   });
-        
+
 
 
         //***************************************************** */
         res.json(fullHash);
-        
+
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
@@ -228,12 +228,12 @@ authRouter.get("/", auth, async (req, res) => {
     } else {
         return res.status(400).json({msg:"INVALID OTP"});
     }
-        
+
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
   });
-  
+
 
 //__________________________________CHANGE USER PASSWORD_________________________________
 
@@ -241,7 +241,7 @@ authRouter.post("/api/reset-password" , auth ,async(req, res) => {
     try {
         const {password, newPassword}=req.body;
 
-        const token = req.header("x-auth-token");
+        var token = req.header("x-auth-token");
         const verified = jwt.verify(token, "passwordKey");
         const user = await User.findById(verified.id);
 ;
@@ -249,15 +249,15 @@ authRouter.post("/api/reset-password" , auth ,async(req, res) => {
       const isMatch = await bcryptjs.compare(password, user.password);
       if (isMatch==false) {
         return res.status(400).json({ msg: "Incorrect password." });
-      } 
+      }
         const hashedPassword = await bcryptjs.hash(newPassword, 8);
         user.password=hashedPassword;
 
        //****************post data in the database**********************
-        await user.save(); 
+        await user.save();
         token = jwt.sign({id: user._id,}, "passwordKey");
       res.json({token, ...user._doc});
-                
+
 
 
 

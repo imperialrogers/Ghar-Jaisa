@@ -65,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
       body: products == null
           ? const Loader()
           : products!.isEmpty
-              ? const Scaffold(
+              ? Scaffold(
                   body: SingleChildScrollView(
                     child: Column(
                       children: [

@@ -16,7 +16,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   final _lnameController = TextEditingController();
   final _addressController = TextEditingController();
 
-
   bool _isLoading = false;
 
   void updateCredentials(
@@ -78,8 +77,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           children: [
                             const CircleAvatar(
                               radius: 50.0,
-                              backgroundImage: NetworkImage(
-                                  'https://yt3.googleusercontent.com/ifZJFKoXaasijKlvMxM43d1lXCsvTjJgujLvEWCvv68e8rHKSg2OmixwdRBp_L_50uQBviQOHA=s900-c-k-c0x00ffffff-no-rj'),
+                              backgroundImage:
+                                  AssetImage('assets/images/user.jpeg'),
                             ),
                             Positioned(
                               bottom: 0,
