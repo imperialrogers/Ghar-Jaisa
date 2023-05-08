@@ -11,6 +11,7 @@ void showSnackBar(BuildContext context, String text, int x) {
   // int x = 0;
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
+      duration: Duration(milliseconds: 900),
       content: Stack(
         clipBehavior: Clip.none,
         children: [
@@ -35,7 +36,7 @@ void showSnackBar(BuildContext context, String text, int x) {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        (x == 0) ? "OH SHOOT!\n" : "SUCCESS\n",
+                        (x == 0) ? "OH SHOOT!" : "SUCCESS",
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                       Text(

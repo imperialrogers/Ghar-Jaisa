@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_s4/constants/utils.dart';
+import 'package:project_s4/features/account/services/account_services.dart';
+import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class GoogleMaps extends StatefulWidget {
+  static const routeName = '/maps';
+  final String totalSum;
+
+  const GoogleMaps({super.key, required this.totalSum});
   @override
   State<GoogleMaps> createState() => _GoogleMapsState();
 }
@@ -181,7 +187,7 @@ class _GoogleMapsState extends State<GoogleMaps> {
                               });
                               goToGoogleMapsDirections();
                             } else {
-                              showSnackBar(context, "ENTER FIEDLS");
+                              showSnackBar(context, "ENTER FIELDS", 0);
                             }
                           },
                           child: const Text('View on Google Maps'),
@@ -199,7 +205,19 @@ class _GoogleMapsState extends State<GoogleMaps> {
                       child: ClipRRect(
                         borderRadius: BorderRadiusDirectional.circular(20),
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () async {
+                            final AccountServices accountServices =
+                                AccountServices();
+                            accountServices.updateAddress(
+                              context,
+                              "${_addressController.text} ${_streetController.text} ${_pincodeController.text}",
+                            );
+                            Navigator.pushNamed(
+                              context,
+                              PaymentScreen.routeName,
+                              arguments: widget.totalSum,
+                            );
+                          },
                           child: const Text('Proceed to Checkout',
                               softWrap: true,
                               style: TextStyle(

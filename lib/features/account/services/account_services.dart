@@ -144,4 +144,25 @@ class AccountServices {
       showSnackBar(context, e.toString(), 0);
     }
   }
+
+  void updateAddress(
+    BuildContext context,
+    String address,
+  ) async {
+    try {
+      final userProvider = Provider.of<UserProvider>(context, listen: false);
+      final user = userProvider.user;
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? token = prefs.getString('x-auth-token');
+      http.Response res = await http.post(Uri.parse('$uri/api/change-address'),
+          body: jsonEncode({'address': address}),
+          headers: <String, String>{
+            'Content-Type': 'application/json; chatset=UTF-8',
+            'x-auth-token': token!
+          });
+      httpErrorHandle(response: res, context: context, onSuccess: () async {});
+    } catch (e) {
+      showSnackBar(context, e.toString(), 0);
+    }
+  }
 }

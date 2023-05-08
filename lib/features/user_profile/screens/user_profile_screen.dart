@@ -22,6 +22,7 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  String _name = "";
   void logout(BuildContext context) async {
     try {
       SharedPreferences sharedPreferences =
@@ -38,15 +39,23 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     }
   }
 
+  void updateName() {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    // ignore: unused_local_variable
+    final user = userProvider.user;
+    _name = user.name;
+  }
+
+  void initState() {
+    super.initState();
+    updateName();
+  }
+
   @override
   Widget build(BuildContext context) {
-    setState(() {
-      final userProvider = Provider.of<UserProvider>(context, listen: true);
-      // ignore: unused_local_variable
-      final user = userProvider.user;
-    });
     final userProvider = Provider.of<UserProvider>(context, listen: true);
     final user = userProvider.user;
+    _name = user.name;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -83,8 +92,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       height: 150.0,
                       decoration: BoxDecoration(
                         image: const DecorationImage(
-                          image: NetworkImage(
-                              'https://yt3.googleusercontent.com/ifZJFKoXaasijKlvMxM43d1lXCsvTjJgujLvEWCvv68e8rHKSg2OmixwdRBp_L_50uQBviQOHA=s900-c-k-c0x00ffffff-no-rj'),
+                          image: AssetImage('assets/images/user.jpeg'),
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.circular(100.0),
@@ -121,7 +129,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      user.name,
+                      _name,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontSize: 25.0,

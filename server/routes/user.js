@@ -30,7 +30,7 @@ userRouter.post("/api/add-to-cart", auth, async (req, res) => {
         } else{
             user.cart.push({product, quantity : 1});
         }
-     }     
+     }
 
      user = await user.save();
      res.json(user);
@@ -55,8 +55,8 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
                     user.cart[i].quantity -= 1;
                 }
             }
-        
-     }     
+
+     }
 
      user = await user.save();
      res.json(user);
@@ -136,6 +136,23 @@ userRouter.delete("/api/remove-from-cart/:id", auth, async (req, res) => {
       console.log(user);
       user.name = fname+" "+lname;
       console.log(fname);
+      user.address=address;
+      user=await user.save();
+      res.json(user);
+    } catch (e) {
+      res.status(500).json({ error: e.message });
+    }
+  });
+
+
+  //Change Address
+  userRouter.post("/api/change-address", async(req, res)=>{
+    try {
+      const {address} = req.body;
+      const token = req.header("x-auth-token");
+      const verified = jwt.verify(token, "passwordKey");
+      let user = await User.findById(verified.id);
+      // let user = await User.findById(req.user);
       user.address=address;
       user=await user.save();
       res.json(user);

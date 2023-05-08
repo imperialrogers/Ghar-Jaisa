@@ -131,15 +131,15 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
                                 padding: const EdgeInsets.only(bottom: 20),
                                 child: Column(
                                   children: [
-                                    Text(
-                                        '${orderss![index].products[0].name} X ${orderss![index].quantity}',
+                                    Text('${orderss![index].products[0].name}',
                                         softWrap: true,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                             fontSize: 18,
                                             fontWeight: FontWeight.w600)),
-                                    const Text('Dharwad-Hubli Locality',
+                                    const Text('Dharwad-Hubli',
                                         softWrap: true,
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                             fontSize: 11,
                                             fontWeight: FontWeight.w300,
@@ -148,7 +148,7 @@ class _OrdersHistoryScreenState extends State<OrdersHistoryScreen> {
                                 ),
                               ),
                               const SizedBox(
-                                width: 20,
+                                width: 9,
                               ),
                               Container(
                                 padding: const EdgeInsets.only(bottom: 30),

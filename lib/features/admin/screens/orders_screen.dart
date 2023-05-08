@@ -55,12 +55,12 @@ class _OrdersScreenState extends State<OrdersScreen> {
                       SingleProduct(
                         image: orderData.products[0].images[0],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         orderData.products[0].name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 16,
                         ),

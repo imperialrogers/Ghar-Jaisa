@@ -21,6 +21,7 @@ import 'package:project_s4/features/payment/screens/payment_screen.dart';
 import 'package:project_s4/features/search/screens/search_screen.dart';
 import 'package:project_s4/features/user_profile/screens/edit_profile_screen.dart';
 import 'package:project_s4/features/user_profile/screens/user_profile_screen.dart';
+import 'package:project_s4/maps/googleMap.dart';
 import 'package:project_s4/screens/fill_bio.dart';
 import 'features/auth/screens/login_screen.dart';
 import 'features/auth/screens/signup_screen.dart';
@@ -183,6 +184,15 @@ Route<dynamic>? generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => PasswordOtpPage(
           phoneN: totalAmount,
+        ),
+      );
+
+    case GoogleMaps.routeName:
+      var totalAmount = routeSettings.arguments as String;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => GoogleMaps(
+          totalSum: totalAmount,
         ),
       );
 

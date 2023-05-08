@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String uri = 'http://10.0.7.98:3000';
+String uri = 'http://10.0.0.99:3000';
 
 class GlobalVariables {
   // COLORS
@@ -44,48 +44,39 @@ class GlobalVariables {
   static const List<Map<String, String>> categoryImages = [
     {
       'title': "Main Course",
-      'image':
-          'https://thumbs.dreamstime.com/z/indian-vegetarian-meal-north-indian-main-course-indian-veg-meal-consisting-dal-fry-lentils-along-fried-potatoes-112712018.jpg',
+      'image': 'assets/images/maincourse.jpeg',
     },
     {
       'title': "Biryani",
-      'image':
-          'https://media.istockphoto.com/id/469866881/photo/mutton-gosht-biryani.jpg?s=612x612&w=0&k=20&c=FH6dExVNp_hb9JtJCyGrmKAhPJwQo3UdlMC6gHCbVLg=',
+      'image': 'assets/images/biryani.jpeg',
     },
     {
       'title': "South Indian & Mini Meal",
-      'image':
-          'https://upload.wikimedia.org/wikipedia/commons/6/68/Tamil_Nadu_Non-Vegetarian_Meals.png',
+      'image': 'assets/images/minimeal.jpeg',
     },
     {
       'title': "Starters",
-      'image':
-          'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dinner-party-starters-1627381380.jpg?crop=1.00xw:1.00xh;0,0&resize=980:*',
+      'image': 'assets/images/starters.jpeg',
     },
     {
       'title': "Choice Of Dal",
-      'image':
-          'https://www.daringgourmet.com/wp-content/uploads/2013/06/Masoor-Dal-4-square-728x728.jpg',
+      'image': 'assets/images/dal.jpeg',
     },
     {
       'title': "Breads",
-      'image':
-          'https://assets.bonappetit.com/photos/5c62e4a3e81bbf522a9579ce/1:1/w_1920,c_limit/milk-bread.jpg',
+      'image': 'assets/images/breads.jpeg',
     },
     {
       'title': "Rice",
-      'image':
-          'https://www.yummytummyaarthi.com/wp-content/uploads/2018/01/IMG_8232.jpg',
+      'image': 'assets/images/rice.jpeg',
     },
     {
       'title': "Chinese",
-      'image':
-          'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/02/07/15/chinese.jpg?quality=75&width=990&crop=1714%3A1143%2Csmart&auto=webp',
+      'image': 'assets/images/chinese.jpeg',
     },
     {
       'title': "Burgers and Sandwiches",
-      'image':
-          'https://www.recipetineats.com/wp-content/uploads/2022/08/Stack-of-cheeseburgers.jpg',
+      'image': 'assets/images/burger.jpg',
     },
   ];
 }
